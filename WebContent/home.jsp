@@ -43,8 +43,8 @@
 			.left{
 			    float: left;
 			    border: 3px solid blue;
-			    width: 70%;
-			    height: 1500px;
+			    width: 69%;
+			    height: 1300px;
 			    margin-bottom: 10px;
 			}
 
@@ -78,7 +78,7 @@
 			    float: left;
 			    border: 3px solid red;
 			    width: 28.9%;
-			    height: 1500px;
+			    height: 1300px;
 			    margin-bottom: 10px;
 			}
 

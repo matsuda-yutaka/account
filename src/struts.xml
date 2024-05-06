@@ -10,5 +10,11 @@
 			<result name="success">userCreate.jsp</result>
 		</action>
 
+		<!-- UserCreateConfirmAction -->
+		<action name="UserCreateConfirmAction" class="com.diworksdev.account.action.UserCreateConfirmAction" method="execute">
+			<result name="success">userCreateConfirm.jsp</result>
+			<result name="error">userCreate.jsp</result>
+		</action>
+
 	</package>
 </struts>

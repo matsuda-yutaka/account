@@ -76,7 +76,7 @@
                 <li>トップ</li>
                 <li>プロフィール</li>
                 <li>D.I.Blogについて</li>
-                <a href='<s:url action="UserCreateConfirmAction" />'><li>アカウント登録</li></a>
+                <a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>
                 <li>問い合わせ</li>
                 <li>その他</li>
             </ul>
@@ -87,104 +87,108 @@
 					<s:property value="errorMessage" escape="false" />
 				</s:if>
 				<table>
-					<s:form action = "UserCreateConfirmAction">
-						<tr>
+					<s:form action = "UserCreateCompleteAction">
+						<tr id="box">
 							<td>
 								<label>名前（姓）:</label>
 							</td>
 							<td>
-								<input type="text" name="family_name" value="" />
+								<s:property value="family_name" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>名前（名）:</label>
 							</td>
 							<td>
-								<input type="text" name="last_name" value="" />
+								<s:property value="last_name" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>カナ（姓）:</label>
 							</td>
 							<td>
-								<input type="text" name="family_name_kana" value="" />
+								<s:property value="family_name_kana" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>カナ（名）:</label>
 							</td>
 							<td>
-								<input type="text" name="last_name_kana" value="" />
+								<s:property value="last_name_kana" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>メールアドレス:</label>
 							</td>
 							<td>
-								<input type="text" name="mail" value="" />
+								<s:property value="mail" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<input type="text" name="password" value="" />
+								<s:property value="password" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>性別:</label>
 							</td>
 							<td>
-								<input type="text" name="gender" value="" />
+								<s:property value="gender" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>郵便番号:</label>
 							</td>
 							<td>
-								<input type="text" name="postal_code" value="" />
+								<s:property value="postal_code" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>住所（都道府県）:</label>
 							</td>
 							<td>
-								<input type="text" name="prefecture" value="" />
+								<s:property value="prefecture" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>住所（地区町村）:</label>
 							</td>
 							<td>
-								<input type="text" name="address_1" value="" />
+								<s:property value="address_1" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>住所（番地）:</label>
 							</td>
 							<td>
-								<input type="text" name="address_2" value="" />
+								<s:property value="address_2" escape="false" />
 							</td>
 						</tr>
-						<tr>
+						<tr id="box">
 							<td>
 								<label>アカウント権限:</label>
 							</td>
 							<td>
-								<input type="text" name="authority" value="" />
+								<s:property value="authority" escape="false" />
 							</td>
 						</tr>
-						<s:submit value="確認する" />
+						<tr>
+							<td>
+								<s:submit value="登録する" />
+							</td>
+						</tr>
 					</s:form>
 				</table>
 			</div>
