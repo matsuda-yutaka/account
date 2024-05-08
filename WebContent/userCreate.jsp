@@ -93,7 +93,7 @@
 								<label>名前（姓）:</label>
 							</td>
 							<td>
-								<input type="text" name="family_name" value="" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" />
+								<input type="text" maxlength="10" name="family_name" value="" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" />
 							</td>
 						</tr>
 						<tr>
@@ -101,7 +101,7 @@
 								<label>名前（名）:</label>
 							</td>
 							<td>
-								<input type="text" name="last_name" value="" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" />
+								<input type="text" maxlength="10" name="last_name" value="" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" />
 							</td>
 						</tr>
 						<tr>
@@ -109,7 +109,7 @@
 								<label>カナ（姓）:</label>
 							</td>
 							<td>
-								<input type="text" name="family_name_kana" value="" pattern="[\u30A1-\u30F6]*" />
+								<input type="text" maxlength="10" name="family_name_kana" value="" pattern="[\u30A1-\u30F6]*" />
 							</td>
 						</tr>
 						<tr>
@@ -117,7 +117,7 @@
 								<label>カナ（名）:</label>
 							</td>
 							<td>
-								<input type="text" name="last_name_kana" value="" pattern="[\u30A1-\u30F6]*" />
+								<input type="text" maxlength="10" name="last_name_kana" value="" pattern="[\u30A1-\u30F6]*" />
 							</td>
 						</tr>
 						<tr>
@@ -125,7 +125,7 @@
 								<label>メールアドレス:</label>
 							</td>
 							<td>
-								<input type="text" name="mail" value="" >
+								<input type="text" maxlength="100" name="mail" value="" pattern="[a-zA-Z0-9_@]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -133,7 +133,7 @@
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<input type="text" name="password" value="" pattern="^[a-zA-Z0-9]+$" />
+								<input type="text" maxlength="10" name="password" value="" pattern="^[a-zA-Z0-9]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -154,7 +154,7 @@
 								<label>郵便番号:</label>
 							</td>
 							<td>
-								<input type="text" name="postal_code" value="" />
+								<input type="text" maxlength="7" name="postal_code" value="" pattern="[0-9]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -219,7 +219,7 @@
 								<label>住所（地区町村）:</label>
 							</td>
 							<td>
-								<input type="text" name="address_1" value="" />
+								<input type="text" maxlength="10" name="address_1" value="" />
 							</td>
 						</tr>
 						<tr>
@@ -227,7 +227,7 @@
 								<label>住所（番地）:</label>
 							</td>
 							<td>
-								<input type="text" name="address_2" value="" />
+								<input type="text" maxlength="100" name="address_2" value="" pattern="[-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F6\0-9０-９_\s]*" />
 							</td>
 						</tr>
 						<tr>
