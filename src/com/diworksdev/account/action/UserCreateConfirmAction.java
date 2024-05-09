@@ -27,25 +27,114 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		String result = SUCCESS;
 
-		if(!(family_name.equals("")) &&!(last_name.equals("")) &&!(family_name_kana.equals("")) &&!(last_name_kana.equals("")) &&!(mail.equals("")) &&!(password.equals("")) &&!(gender.equals("")) &&!(postal_code.equals("")) &&!(prefecture.equals("")) &&!(address_1.equals("")) &&!(address_2.equals("")) &&!(authority.equals(""))) {
+		if(!(family_name.equals(""))) {
 
 			session.put("family_name", family_name);
+
+		} else {
+			setErrorMessage("名前（姓）が未入力です。");
+			result = ERROR;
+		}
+
+		if(!(last_name.equals(""))) {
+
 			session.put("last_name", last_name);
+
+		} else {
+			setErrorMessage("名前（名）が未入力です。");
+			result = ERROR;
+		}
+
+		if(!(family_name_kana.equals(""))) {
+
 			session.put("family_name_kana", family_name_kana);
+
+		} else {
+			setErrorMessage("カナ（姓）が未入力です。");
+			result = ERROR;
+		}
+
+		if(!(last_name_kana.equals(""))) {
+
 			session.put("last_name_kana", last_name_kana);
+
+		} else {
+			setErrorMessage("カナ（名）が未入力です。");
+			result = ERROR;
+		}
+
+		if(!(mail.equals(""))) {
+
 			session.put("mail", mail);
+
+		} else {
+			setErrorMessage("メールアドレスが未入力です。");
+			result = ERROR;
+		}
+
+		if(!(password.equals(""))) {
+
 			session.put("password", password);
+
+		} else {
+			setErrorMessage("パスワードが未入力です。");
+			result = ERROR;
+		}
+
+		if(!(gender.equals(""))) {
+
 			session.put("gender", gender);
+
+		} else {
+			setErrorMessage("性別が未入力です。");
+			result = ERROR;
+		}
+
+		if(!(postal_code.equals(""))) {
+
 			session.put("postal_code", postal_code);
+
+		} else {
+			setErrorMessage("郵便番号が未入力です。");
+			result = ERROR;
+		}
+
+		if(!(prefecture.equals(""))) {
+
 			session.put("prefecture", prefecture);
+
+		} else {
+			setErrorMessage("住所（都道府県）が未入力です。");
+			result = ERROR;
+		}
+
+		if(!(address_1.equals(""))) {
+
 			session.put("address_1", address_1);
+
+		} else {
+			setErrorMessage("住所（市区町村）が未入力です。");
+			result = ERROR;
+		}
+
+		if(!(address_2.equals(""))) {
+
 			session.put("address_2", address_2);
+
+		} else {
+			setErrorMessage("住所（番地）が未入力です。");
+			result = ERROR;
+		}
+
+		if(!(authority.equals(""))) {
+
 			session.put("authority", authority);
 
 		} else {
-			setErrorMessage("未入力の項目があります。");
+			setErrorMessage("アカウント権限が未入力です。");
 			result = ERROR;
 		}
+
 		return result;
 	}
 
