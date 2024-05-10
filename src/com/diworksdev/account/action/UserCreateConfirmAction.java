@@ -32,7 +32,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("family_name", family_name);
 
 		} else {
-			setErrorMessage("名前（姓）が未入力です。");
+			setErrorMessage1("名前（姓）が未入力です。");
 			result = ERROR;
 		}
 
@@ -41,7 +41,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("last_name", last_name);
 
 		} else {
-			setErrorMessage("名前（名）が未入力です。");
+			setErrorMessage2("名前（名）が未入力です。");
 			result = ERROR;
 		}
 
@@ -50,7 +50,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("family_name_kana", family_name_kana);
 
 		} else {
-			setErrorMessage("カナ（姓）が未入力です。");
+			setErrorMessage3("カナ（姓）が未入力です。");
 			result = ERROR;
 		}
 
@@ -59,7 +59,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("last_name_kana", last_name_kana);
 
 		} else {
-			setErrorMessage("カナ（名）が未入力です。");
+			setErrorMessage4("カナ（名）が未入力です。");
 			result = ERROR;
 		}
 
@@ -68,7 +68,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("mail", mail);
 
 		} else {
-			setErrorMessage("メールアドレスが未入力です。");
+			setErrorMessage5("メールアドレスが未入力です。");
 			result = ERROR;
 		}
 
@@ -77,7 +77,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("password", password);
 
 		} else {
-			setErrorMessage("パスワードが未入力です。");
+			setErrorMessage6("パスワードが未入力です。");
 			result = ERROR;
 		}
 
@@ -86,7 +86,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("gender", gender);
 
 		} else {
-			setErrorMessage("性別が未入力です。");
+			setErrorMessage7("性別が未入力です。");
 			result = ERROR;
 		}
 
@@ -95,7 +95,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("postal_code", postal_code);
 
 		} else {
-			setErrorMessage("郵便番号が未入力です。");
+			setErrorMessage8("郵便番号が未入力です。");
 			result = ERROR;
 		}
 
@@ -104,7 +104,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("prefecture", prefecture);
 
 		} else {
-			setErrorMessage("住所（都道府県）が未入力です。");
+			setErrorMessage9("住所（都道府県）が未入力です。");
 			result = ERROR;
 		}
 
@@ -113,7 +113,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("address_1", address_1);
 
 		} else {
-			setErrorMessage("住所（市区町村）が未入力です。");
+			setErrorMessage10("住所（市区町村）が未入力です。");
 			result = ERROR;
 		}
 
@@ -122,7 +122,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("address_2", address_2);
 
 		} else {
-			setErrorMessage("住所（番地）が未入力です。");
+			setErrorMessage11("住所（番地）が未入力です。");
 			result = ERROR;
 		}
 
@@ -131,7 +131,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("authority", authority);
 
 		} else {
-			setErrorMessage("アカウント権限が未入力です。");
+			setErrorMessage12("アカウント権限が未入力です。");
 			result = ERROR;
 		}
 
@@ -239,11 +239,99 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.session = session;
 	}
 
-	public String getErrorMessage() {
-		return errorMessage;
+	public String getErrorMessage1() {
+		return errorMessage1;
 	}
 
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+	public void setErrorMessage1(String errorMessage1) {
+		this.errorMessage1 = errorMessage1;
+	}
+
+	public String getErrorMessage2() {
+		return errorMessage2;
+	}
+
+	public void setErrorMessage2(String errorMessage2) {
+		this.errorMessage2 = errorMessage2;
+	}
+
+	public String getErrorMessage3() {
+		return errorMessage3;
+	}
+
+	public void setErrorMessage3(String errorMessage3) {
+		this.errorMessage3 = errorMessage3;
+	}
+
+	public String getErrorMessage4() {
+		return errorMessage4;
+	}
+
+	public void setErrorMessage4(String errorMessage4) {
+		this.errorMessage4 = errorMessage4;
+	}
+
+	public String getErrorMessage5() {
+		return errorMessage5;
+	}
+
+	public void setErrorMessage5(String errorMessage5) {
+		this.errorMessage5 = errorMessage5;
+	}
+
+	public String getErrorMessage6() {
+		return errorMessage6;
+	}
+
+	public void setErrorMessage6(String errorMessage6) {
+		this.errorMessage6 = errorMessage6;
+	}
+
+	public String getErrorMessage7() {
+		return errorMessage7;
+	}
+
+	public void setErrorMessage7(String errorMessage7) {
+		this.errorMessage7 = errorMessage7;
+	}
+
+	public String getErrorMessage8() {
+		return errorMessage8;
+	}
+
+	public void setErrorMessage8(String errorMessage8) {
+		this.errorMessage8 = errorMessage8;
+	}
+
+	public String getErrorMessage9() {
+		return errorMessage9;
+	}
+
+	public void setErrorMessage9(String errorMessage9) {
+		this.errorMessage9 = errorMessage9;
+	}
+
+	public String getErrorMessage1() {
+		return errorMessage1;
+	}
+
+	public void setErrorMessage10(String errorMessage10) {
+		this.errorMessage10 = errorMessage10;
+	}
+
+	public String getErrorMessage11() {
+		return errorMessage11;
+	}
+
+	public void setErrorMessage11(String errorMessage11) {
+		this.errorMessage11 = errorMessage11;
+	}
+
+	public String getErrorMessage12() {
+		return errorMessage12;
+	}
+
+	public void setErrorMessage12(String errorMessage1) {
+		this.errorMessage12 = errorMessage12;
 	}
 }

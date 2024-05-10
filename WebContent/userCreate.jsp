@@ -95,8 +95,8 @@
 						</tr>
 						<tr>
 							<td style="color: red;">
-								<s:if test="errorMessage != ''">
-										<s:property value="errorMessage" escape="false" />
+								<s:if test="errorMessage1 != ''">
+										<s:property value="errorMessage1" escape="false" />
 								</s:if>
 							</td>
 						</tr>
@@ -109,11 +109,25 @@
 							</td>
 						</tr>
 						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage2 != ''">
+										<s:property value="errorMessage2" escape="false" />
+								</s:if>
+							</td>
+						</tr>
+						<tr>
 							<td>
 								<label>カナ（姓）:</label>
 							</td>
 							<td>
 								<input type="text" maxlength="10" name="family_name_kana" value="" pattern="[\u30A1-\u30F6]*" />
+							</td>
+						</tr>
+						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage3 != ''">
+										<s:property value="errorMessage3" escape="false" />
+								</s:if>
 							</td>
 						</tr>
 						<tr>
@@ -125,6 +139,13 @@
 							</td>
 						</tr>
 						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage4 != ''">
+										<s:property value="errorMessage4" escape="false" />
+								</s:if>
+							</td>
+						</tr>
+						<tr>
 							<td>
 								<label>メールアドレス:</label>
 							</td>
@@ -133,11 +154,25 @@
 							</td>
 						</tr>
 						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage5 != ''">
+										<s:property value="errorMessage5" escape="false" />
+								</s:if>
+							</td>
+						</tr>
+						<tr>
 							<td>
 								<label>パスワード:</label>
 							</td>
 							<td>
 								<input type="text" maxlength="10" name="password" value="" pattern="^[a-zA-Z0-9]+$" />
+							</td>
+						</tr>
+						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage6 != ''">
+										<s:property value="errorMessage6" escape="false" />
+								</s:if>
 							</td>
 						</tr>
 						<tr>
@@ -154,11 +189,25 @@
 							</td>
 						</tr>
 						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage7 != ''">
+										<s:property value="errorMessage7" escape="false" />
+								</s:if>
+							</td>
+						</tr>
+						<tr>
 							<td>
 								<label>郵便番号:</label>
 							</td>
 							<td>
 								<input type="text" maxlength="7" name="postal_code" value="" pattern="[0-9]+$" />
+							</td>
+						</tr>
+						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage8 != ''">
+										<s:property value="errorMessage8" escape="false" />
+								</s:if>
 							</td>
 						</tr>
 						<tr>
@@ -219,11 +268,25 @@
 							</td>
 						</tr>
 						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage9 != ''">
+										<s:property value="errorMessage9" escape="false" />
+								</s:if>
+							</td>
+						</tr>
+						<tr>
 							<td>
 								<label>住所（地区町村）:</label>
 							</td>
 							<td>
 								<input type="text" maxlength="10" name="address_1" value="" />
+							</td>
+						</tr>
+						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage10 != ''">
+										<s:property value="errorMessage10" escape="false" />
+								</s:if>
 							</td>
 						</tr>
 						<tr>
@@ -235,6 +298,13 @@
 							</td>
 						</tr>
 						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage11 != ''">
+										<s:property value="errorMessage11" escape="false" />
+								</s:if>
+							</td>
+						</tr>
+						<tr>
 							<td>
 								<label>アカウント権限:</label>
 							</td>
@@ -243,6 +313,13 @@
 								    <option value=1>一般</option>
 								    <option value=2>管理者</option>
 								</select>
+							</td>
+						</tr>
+						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage12 != ''">
+										<s:property value="errorMessage12" escape="false" />
+								</s:if>
 							</td>
 						</tr>
 						<s:submit value="確認する" />
