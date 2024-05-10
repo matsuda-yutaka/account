@@ -83,9 +83,6 @@
         </header>
         <main>
         	<div>
-				<s:if test="errorMessage != ''">
-					<s:property value="errorMessage" escape="false" />
-				</s:if>
 				<table>
 					<s:form action = "UserCreateConfirmAction">
 						<tr>
@@ -94,6 +91,13 @@
 							</td>
 							<td>
 								<input type="text" maxlength="10" name="family_name" value="" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" />
+							</td>
+						</tr>
+						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage != ''">
+										<s:property value="errorMessage" escape="false" />
+								</s:if>
 							</td>
 						</tr>
 						<tr>
