@@ -21,7 +21,18 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String address_2;
 	private String authority;
 	public Map<String, Object> session;
-	private String errorMessage;
+	private String errorMessage1;
+	private String errorMessage2;
+	private String errorMessage3;
+	private String errorMessage4;
+	private String errorMessage5;
+	private String errorMessage6;
+	private String errorMessage7;
+	private String errorMessage8;
+	private String errorMessage9;
+	private String errorMessage10;
+	private String errorMessage11;
+	private String errorMessage12;
 
 	public String execute() {
 
@@ -311,8 +322,8 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.errorMessage9 = errorMessage9;
 	}
 
-	public String getErrorMessage1() {
-		return errorMessage1;
+	public String getErrorMessage10() {
+		return errorMessage10;
 	}
 
 	public void setErrorMessage10(String errorMessage10) {
@@ -331,7 +342,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		return errorMessage12;
 	}
 
-	public void setErrorMessage12(String errorMessage1) {
+	public void setErrorMessage12(String errorMessage12) {
 		this.errorMessage12 = errorMessage12;
 	}
 }
