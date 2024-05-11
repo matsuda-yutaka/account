@@ -186,6 +186,9 @@
 						</tr>
 						<tr>
 							<td>
+								<a href='<s:url action="HomeAction" />'>
+									<s:submit value="前に戻る" />
+								</a>
 								<s:submit value="登録する" />
 							</td>
 						</tr>
