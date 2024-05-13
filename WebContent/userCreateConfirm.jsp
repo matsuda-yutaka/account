@@ -83,9 +83,6 @@
         </header>
         <main>
         	<div>
-				<s:if test="errorMessage != ''">
-					<s:property value="errorMessage" escape="false" />
-				</s:if>
 				<table>
 					<s:form action = "UserCreateCompleteAction">
 						<tr id="box">
@@ -186,10 +183,14 @@
 						</tr>
 						<tr>
 							<td>
-								<a href='<s:url action="HomeAction" />'>
-									<s:submit value="前に戻る" />
-								</a>
 								<s:submit value="登録する" />
+							</td>
+						</tr>
+					</s:form>
+					<s:form action = "UserCreateAction">
+						<tr>
+							<td>
+								<button onclick="history.back()">前に戻る</button>
 							</td>
 						</tr>
 					</s:form>
