@@ -22,7 +22,9 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	private String address_2;
 	private String authority;
 	public Map<String, Object> session;
+	private String errorMessage;
 	private UserCreateCompleteDAO userCreateCompleteDAO = new UserCreateCompleteDAO();
+	private boolean b;
 
 	public String execute() throws SQLException {
 
@@ -41,8 +43,16 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 		String result = SUCCESS;
 
-		return result;
+//		if(b==true){
+//
+//			result=SUCCESS;
+//
+//		} else {
+//			setErrorMessage("エラーが発生したためアカウント登録できません。");
+//			result = ERROR;
+//		}
 
+		return result;
 	}
 
 	public String getFamily_name() {
@@ -144,5 +154,13 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
 	}
 }

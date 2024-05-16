@@ -12,7 +12,7 @@ public class UserCreateCompleteDAO {
 	private Connection connection = dbConnector.getConnection();
 	private DateUtil dateUtil = new DateUtil();
 
-	private String sql = "INSERT INTO account_info(family_name, last_name, family_name_kana, last_name_kana, mail, password, gender, postal_code, prefecture, address_1, address_2, authority) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private String sql = "INSERT INTO account_info(family_name, last_name, family_name_kana, last_name_kana, mail, password, gender, postal_code, prefecture, address_1, address_2, authority, registered_time) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	public void cerateUser(String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String password, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority) throws SQLException {
 
@@ -30,6 +30,7 @@ public class UserCreateCompleteDAO {
 			preparedStatement.setString(10, address_1);
 			preparedStatement.setString(11, address_2);
 			preparedStatement.setString(12, authority);
+			preparedStatement.setString(13, dateUtil.getDate());
 
 			preparedStatement.execute();
 

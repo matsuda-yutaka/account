@@ -182,6 +182,13 @@
 							</td>
 						</tr>
 						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage != ''">
+										<s:property value="errorMessage" escape="false" />
+								</s:if>
+							</td>
+						</tr>
+						<tr>
 							<td>
 								<s:submit value="登録する" />
 							</td>

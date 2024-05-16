@@ -165,7 +165,7 @@
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="10" name="password" value="" pattern="^[a-zA-Z0-9]+$" />
+								<input type="password" maxlength="10" name="password" value="" pattern="^[a-zA-Z0-9]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -180,11 +180,11 @@
 								<label>性別:</label>
 							</td>
 							<td>
-								<input type="radio" name="gender" value=1 checked/>
+								<input type="radio" name="gender" value=0 checked/>
 								<label for="男">男</label>
 							</td>
 							<td>
-								<input type="radio" name="gender" value=2 />
+								<input type="radio" name="gender" value=1 />
 								<label for="女">女</label>
 							</td>
 						</tr>
@@ -310,8 +310,8 @@
 							</td>
 							<td>
 								<select name="authority">
-								    <option value=1>一般</option>
-								    <option value=2>管理者</option>
+								    <option value=0>一般</option>
+								    <option value=1>管理者</option>
 								</select>
 							</td>
 						</tr>
