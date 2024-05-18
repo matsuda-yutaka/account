@@ -1,5 +1,4 @@
 package com.diworksdev.account.action;
-import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -24,33 +23,29 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	public Map<String, Object> session;
 	private String errorMessage;
 	private UserCreateCompleteDAO userCreateCompleteDAO = new UserCreateCompleteDAO();
-	private boolean b;
 
-	public String execute() throws SQLException {
-
-		userCreateCompleteDAO.cerateUser(session.get("family_name").toString(),
-				session.get("last_name").toString(),
-				session.get("family_name_kana").toString(),
-				session.get("last_name_kana").toString(),
-				session.get("mail").toString(),
-				session.get("password").toString(),
-				session.get("gender").toString(),
-				session.get("postal_code").toString(),
-				session.get("prefecture").toString(),
-				session.get("address_1").toString(),
-				session.get("address_2").toString(),
-				session.get("authority").toString());
+	public String execute() {
 
 		String result = SUCCESS;
-
-//		if(b==true){
-//
-//			result=SUCCESS;
-//
-//		} else {
-//			setErrorMessage("エラーが発生したためアカウント登録できません。");
-//			result = ERROR;
-//		}
+		try {
+			userCreateCompleteDAO.cerateUser(session.get("family_name").toString(),
+					session.get("last_name").toString(),
+					session.get("family_name_kana").toString(),
+					session.get("last_name_kana").toString(),
+					session.get("mail").toString(),
+					session.get("password").toString(),
+					session.get("gender").toString(),
+					session.get("postal_code").toString(),
+					session.get("prefecture").toString(),
+					session.get("address_1").toString(),
+					session.get("address_2").toString(),
+					session.get("authority").toString());
+			result = SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			setErrorMessage("エラーが発生したためアカウント登録できません。");
+			result = ERROR;
+		}
 
 		return result;
 	}

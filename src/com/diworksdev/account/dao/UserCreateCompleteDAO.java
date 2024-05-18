@@ -35,7 +35,7 @@ public class UserCreateCompleteDAO {
 			preparedStatement.execute();
 
 		} catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("エラーが発生したためアカウント登録できません。");
 		} finally {
 			connection.close();
 		}
