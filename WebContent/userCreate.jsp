@@ -150,7 +150,7 @@
 								<label>メールアドレス:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="100" name="mail" value="" pattern="[a-zA-Z0-9_@]+$" />
+								<input type="text" maxlength="100" name="mail" value="" pattern="[0-9a-zA-Z@-]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -279,7 +279,7 @@
 								<label>住所（地区町村）:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="10" name="address_1" value="" />
+								<input type="text" maxlength="10" name="address_1" value="" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
 							</td>
 						</tr>
 						<tr>
@@ -294,7 +294,7 @@
 								<label>住所（番地）:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="100" name="address_2" value="" pattern="[-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F6\0-9０-９_\s]*" />
+								<input type="text" maxlength="100" name="address_2" value="" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
 							</td>
 						</tr>
 						<tr>

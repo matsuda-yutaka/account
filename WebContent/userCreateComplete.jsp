@@ -84,12 +84,14 @@
         </header>
         <main>
         	<div>
-				<h3>登録完了しました</h3>
-				<div>
-					<a href='<s:url action="HomeAction" />'>TOPページへ戻る</a>
-				</div>
+				<table>
+					<s:form action = "UserCreateConfirmAction">
+							<h3>登録完了しました</h3>
+							<s:submit value="TOPページへ戻る" />
+					</s:form>
+				</table>
 			</div>
-       	</main>
+		</main>
         <footer>
             Copyright all right reserved diworks 2015 - 2018
         </footer>
