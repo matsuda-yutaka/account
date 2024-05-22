@@ -110,6 +110,9 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			result = ERROR;
 		}
 
+//		System.out.println("prefecture:");
+//		System.out.println(prefecture);
+//		if(prefecture != null && !(prefecture.equals(""))) {
 		if(!(prefecture.equals(""))) {
 
 			session.put("prefecture", prefecture);
@@ -218,6 +221,8 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	}
 
 	public void setPrefecture(String prefecture) {
+//		System.out.println("setPrefecture");
+//		System.out.println(prefecture);
 		this.prefecture = prefecture;
 	}
 

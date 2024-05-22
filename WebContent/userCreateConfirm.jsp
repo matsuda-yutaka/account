@@ -194,7 +194,7 @@
 							</td>
 						</tr>
 					</s:form>
-					<s:form action = "UserCreateAction">
+					<s:form action = "UserCreateGoBackAction">
 						<tr>
 							<td>
 								<button onclick="history.back()">前に戻る</button>

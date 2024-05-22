@@ -90,7 +90,7 @@
 								<label>名前（姓）:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="10" name="family_name" value="" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" />
+								<input type="text" maxlength="10" name="family_name" value="session.family_name" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" />
 							</td>
 						</tr>
 						<tr>
@@ -105,7 +105,7 @@
 								<label>名前（名）:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="10" name="last_name" value="" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" />
+								<input type="text" maxlength="10" name="last_name" value="session.last_name" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" />
 							</td>
 						</tr>
 						<tr>
@@ -120,7 +120,7 @@
 								<label>カナ（姓）:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="10" name="family_name_kana" value="" pattern="[\u30A1-\u30F6]*" />
+								<input type="text" maxlength="10" name="family_name_kana" value="session.family_name_kana" pattern="[\u30A1-\u30F6]*" />
 							</td>
 						</tr>
 						<tr>
@@ -135,7 +135,7 @@
 								<label>カナ（名）:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="10" name="last_name_kana" value="" pattern="[\u30A1-\u30F6]*" />
+								<input type="text" maxlength="10" name="last_name_kana" value="session.last_name_kana" pattern="[\u30A1-\u30F6]*" />
 							</td>
 						</tr>
 						<tr>
@@ -150,7 +150,7 @@
 								<label>メールアドレス:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="100" name="mail" value="" pattern="[0-9a-zA-Z@-]+$" />
+								<input type="text" maxlength="100" name="mail" value="session.mail" pattern="[0-9a-zA-Z@-]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -165,7 +165,7 @@
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<input type="password" maxlength="10" name="password" value="" pattern="^[a-zA-Z0-9]+$" />
+								<input type="password" maxlength="10" name="password" value="session.password" pattern="^[a-zA-Z0-9]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -200,7 +200,7 @@
 								<label>郵便番号:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="7" name="postal_code" value="" pattern="[0-9]+$" />
+								<input type="text" maxlength="7" name="postal_code" value="session.postal_code" pattern="[0-9]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -215,8 +215,8 @@
 								<label>住所（都道府県）:</label>
 							</td>
 							<td>
-								<select name="prefecture">
-									<option value="" selected></option>
+								<select name="prefecture" value="session.prefecture">
+									<option value="" selected disabled></option>
 								    <option value="北海道">北海道</option>
 								    <option value="青森県">青森県</option>
 								    <option value="秋田県">秋田県</option>
@@ -279,7 +279,7 @@
 								<label>住所（地区町村）:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="10" name="address_1" value="" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
+								<input type="text" maxlength="10" name="address_1" value="session.address_1" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
 							</td>
 						</tr>
 						<tr>
@@ -294,7 +294,7 @@
 								<label>住所（番地）:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="100" name="address_2" value="" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
+								<input type="text" maxlength="100" name="address_2" value="session.address_2" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
 							</td>
 						</tr>
 						<tr>
@@ -309,7 +309,7 @@
 								<label>アカウント権限:</label>
 							</td>
 							<td>
-								<select name="authority">
+								<select name="authority" value="session.authority">
 								    <option value=0>一般</option>
 								    <option value=1>管理者</option>
 								</select>
