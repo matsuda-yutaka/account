@@ -85,7 +85,7 @@
         <main>
         	<div>
 				<table>
-					<s:form action = "UserCreateConfirmAction">
+					<s:form action = "HomeAction">
 							<h3>登録完了しました</h3>
 							<s:submit value="TOPページへ戻る" />
 					</s:form>
