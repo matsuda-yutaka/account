@@ -309,7 +309,7 @@
 								<label>アカウント権限:</label>
 							</td>
 							<td>
-								<select name="authority" value="session.authority">
+								<select name="authority" >
 								    <option value=0>一般</option>
 								    <option value=1>管理者</option>
 								</select>
