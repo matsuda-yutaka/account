@@ -180,11 +180,11 @@
 								<label>性別:</label>
 							</td>
 							<td>
-								<input type="radio" name="gender" value="<s:property value="gender" escape="false" />" checked/>
+								<input type="radio" name="gender" value=0 checked/>
 								<label for="男">男</label>
 							</td>
 							<td>
-								<input type="radio" name="gender" value="<s:property value="gender" escape="false" />" />
+								<input type="radio" name="gender" value=1 />
 								<label for="女">女</label>
 							</td>
 						</tr>
@@ -216,7 +216,7 @@
 							</td>
 							<td>
 								<select name="prefecture" >
-									<option value="<s:property value="prefecture" escape="false" />" selected ></option>
+									<option value="" selected ></option>
 								    <option value="北海道">北海道</option>
 								    <option value="青森県">青森県</option>
 								    <option value="秋田県">秋田県</option>
@@ -309,9 +309,25 @@
 								<label>アカウント権限:</label>
 							</td>
 							<td>
-								<select name="authority" >
-								    <option value="<s:property value="authority" escape="false" />">一般</option>
-								    <option value="<s:property value="authority" escape="false" />">管理者</option>
+								<select name="authority">
+									<script>
+										const auths = {
+										    0: "一般",
+										    1: "管理者",
+										};
+										const selected = <s:property value="authority" escape="false" />;
+										for (const prop in auths) {
+											if (selected == prop) {
+												// 選択されている
+												document.write('<option value="'+prop+'" selected>'+auths[prop]+'</option>');
+											} else {
+												// 選択されていない
+												document.write('<option value="'+prop+'">'+auths[prop]+'</option>');
+											}
+										    //console.log(prop);
+										    //console.log(auths[prop]);
+										}
+									</script>
 								</select>
 							</td>
 						</tr>

@@ -25,18 +25,20 @@ public class UserCreateGoBackAction extends ActionSupport implements SessionAwar
 	public String execute() {
 		String result = SUCCESS;
 		family_name = session.get("family_name").toString();
-		System.out.println(family_name);
 		last_name = session.get("last_name").toString();
 		family_name_kana = session.get("family_name_kana").toString();
 		last_name_kana = session.get("last_name_kana").toString();
 		mail = session.get("mail").toString();
 		gender = session.get("gender").toString();
+		System.out.println(gender);
 		password = session.get("password").toString();
 		postal_code = session.get("postal_code").toString();
 		prefecture = session.get("prefecture").toString();
+		System.out.println(prefecture);
 		address_1 = session.get("address_1").toString();
 		address_2 = session.get("address_2").toString();
 		authority = session.get("authority").toString();
+		System.out.println(authority);
 		return result;
 
 	}
