@@ -179,19 +179,26 @@
 							<td>
 								<label>性別:</label>
 							</td>
-							<tr>
 							<td>
-								<label>性別:</label>
+								<script>
+										const gender = {
+										    0: "男性",
+										    1: "女性",
+										};
+										//const chesked = 1;
+										const chesked = <s:property value="gender" escape="false" />;
+										for (const prop in gender) {
+											if (chesked == prop) {
+												// 選択されている
+												document.write('<input type="radio" name="gender" value="'+prop+'" checked />'+gender[prop]);
+											} else {
+												// 選択されていない
+												document.write('<input type="radio" name="gender" value="'+prop+'" />'+gender[prop]);
+											}
+										}
+								</script>
+
 							</td>
-							<td>
-								<input type="radio" name="gender" value=0 checked/>
-								<label for="男">男</label>
-							</td>
-							<td>
-								<input type="radio" name="gender" value=1 />
-								<label for="女">女</label>
-							</td>
-						</tr>
 						</tr>
 						<tr>
 							<td style="color: red;">
