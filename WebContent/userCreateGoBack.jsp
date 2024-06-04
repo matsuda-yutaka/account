@@ -185,7 +185,6 @@
 										    0: "男性",
 										    1: "女性",
 										};
-										//const chesked = 1;
 										const chesked = <s:property value="gender" escape="false" />;
 										for (const prop in gender) {
 											if (chesked == prop) {
