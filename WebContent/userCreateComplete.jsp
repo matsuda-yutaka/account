@@ -57,6 +57,11 @@
 			    font-size:18px;
 			}
 
+			.kanryou{
+				text-align: center;
+				font-size:25px;
+			}
+
 			footer{
 			    clear: left;
 			    width: 100%;
@@ -86,7 +91,10 @@
         	<div>
 				<table>
 					<s:form action = "HomeAction">
-							<h3>登録完了しました</h3>
+							<h3>アカウント登録完了画面</h3>
+							<div class="kanryou">
+								<p>登録完了しました</p>
+							</div>
 							<s:submit value="TOPページへ戻る" />
 					</s:form>
 				</table>

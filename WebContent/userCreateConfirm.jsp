@@ -88,6 +88,7 @@
         <main>
         	<div>
 				<table>
+					<h3>アカウント登録確認画面</h3>
 					<s:form action = "UserCreateCompleteAction">
 						<tr id="box">
 							<td>

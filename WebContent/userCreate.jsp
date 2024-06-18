@@ -84,6 +84,7 @@
         <main>
         	<div>
 				<table>
+					<h3>アカウント登録画面</h3>
 					<s:form action = "UserCreateConfirmAction">
 						<tr>
 							<td>
@@ -150,7 +151,7 @@
 								<label>メールアドレス:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="100" name="mail" value="" pattern="[0-9a-zA-Z@-]+$" />
+								<input type="text" maxlength="100" name="mail" value="" pattern="[a-zA-Z0-9\-\@]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -165,7 +166,7 @@
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<input type="password" maxlength="10" name="password" value="" pattern="^[a-zA-Z0-9]+$" />
+								<input type="text" maxlength="10" name="password" value="" pattern="[a-zA-Z0-9]+$" />
 							</td>
 						</tr>
 						<tr>
