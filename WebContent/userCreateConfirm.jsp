@@ -148,7 +148,14 @@
 								<label>性別:</label>
 							</td>
 							<td>
-								<s:property value="gender" escape="false" />
+								<script>
+									const gender = "<s:property value="gender" escape="false" />";
+										if (gender == 0) {
+											document.write("男");
+										} else {
+											document.write("女");
+										}
+								</script>
 							</td>
 						</tr>
 						<tr id="box">
@@ -188,7 +195,14 @@
 								<label>アカウント権限:</label>
 							</td>
 							<td>
-								<s:property value="authority" escape="false" />
+								<script>
+									const authority = "<s:property value="authority" escape="false" />";
+										if (authority == 0) {
+											document.write("一般");
+										} else {
+											document.write("管理者");
+										}
+								</script>
 							</td>
 						</tr>
 						<tr>
