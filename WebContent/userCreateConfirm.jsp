@@ -188,7 +188,14 @@
 								<label>住所（番地）:</label>
 							</td>
 							<td>
-								<s:property value="address_2" escape="false" />
+								<script>
+									const address_2 = "<s:property value="address_2" escape="false" />";
+										if (address_2 != null) {
+											document.write(address_2);
+										} else {
+											document.write();
+										}
+								</script>
 							</td>
 						</tr>
 						<tr id="box">
@@ -204,13 +211,6 @@
 											document.write("管理者");
 										}
 								</script>
-							</td>
-						</tr>
-						<tr>
-							<td style="color: red;">
-								<s:if test="errorMessage != ''">
-										<s:property value="errorMessage" escape="false" />
-								</s:if>
 							</td>
 						</tr>
 						<tr>

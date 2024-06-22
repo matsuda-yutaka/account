@@ -43,7 +43,6 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 			result = SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
-			setErrorMessage("エラーが発生したためアカウント登録できません。");
 			result = ERROR;
 		}
 
