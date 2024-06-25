@@ -115,7 +115,7 @@
                 <li>プロフィール</li>
                 <li>D.I.Blogについて</li>
                 <a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>
-                <li>問い合わせ</li>
+                <a href='<s:url action="AccountListAction" />'><li>アカウント一覧</li></a>
                 <li>その他</li>
             </ul>
         </header>

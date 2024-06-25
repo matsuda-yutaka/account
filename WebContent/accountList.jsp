@@ -10,7 +10,7 @@
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<title>error画面</title>
+	<title>アカウント一覧画面</title>
 
 		<style type="text/css">
 		/* ========TAG LAYOUT======== */
@@ -90,9 +90,39 @@
         <main>
         	<div>
 				<table>
-					<div class="error">
-						<p>エラーが発生したためアカウント登録できません。</p>
-					</div>
+					<h3>アカウント登録画面</h3>
+					<tbody>
+						<tr>
+							<th>ID</th>
+							<th>名前（性）</th>
+							<th>名前（名）</th>
+							<th>カナ（性）</th>
+							<th>カナ（名）</th>
+							<th>メールアドレス</th>
+							<th>性別</th>
+							<th>アカウント権限</th>
+							<th>削除フラグ</th>
+							<th>登録日時</th>
+							<th>更新日時</th>
+							<th>操作</th>
+						</tr>
+						<s:iterator value="#session.accountListDTOList">
+							<tr>
+								<td><s:property value="id"/></td>
+								<td><s:property value="family_name"/></td>
+								<td><s:property value="last_name"/></td>
+								<td><s:property value="family_name_kana"/></td>
+								<td><s:property value="last_name_kana"/></td>
+								<td><s:property value="mail"/></td>
+								<td><s:property value="gender"/></td>
+								<td><s:property value="family_name_kana"/></td>
+								<td><s:property value="authority"/></td>
+								<td><s:property value="delete_flag"/></td>
+								<td><s:property value="registered_time"/></td>
+								<td><s:property value="update_time"/></td>
+							</tr>
+						</s:iterator>
+					</tbody>
 				</table>
 			</div>
 		</main>
