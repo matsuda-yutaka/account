@@ -2,17 +2,17 @@ package com.diworksdev.account.dto;
 
 public class AccountListDTO {
 
-	public String id;
-	public String family_name;
-	public String last_name;
-	public String family_name_kana;
-	public String last_name_kana;
-	public String mail;
-	public String gender;
-	public String authority;
-	public String delete_flag;
-	public String registered_time;
-	public String update_time;
+	private String id;
+	private String family_name;
+	private String last_name;
+	private String family_name_kana;
+	private String last_name_kana;
+	private String mail;
+	private String gender;
+	private String authority;
+	private String delete_flag;
+	private String registered_time;
+	private String update_time;
 
 	public String getId() {
 		return id;

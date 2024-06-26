@@ -33,7 +33,7 @@
 		</action>
 
 		<!-- AccountListAction -->
-		<action name="AccountList" class="com.diworksdev.account.action.AccountListAction" method="execute">
+		<action name="AccountListAction" class="com.diworksdev.account.action.AccountListAction" method="execute">
 			<result name="success">accountList.jsp</result>
 		</action>
 
