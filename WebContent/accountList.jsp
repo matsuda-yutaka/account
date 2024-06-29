@@ -93,7 +93,7 @@
         <main>
         	<div>
 				<table>
-					<h3>アカウント登録画面</h3>
+					<h3>アカウント一覧画面</h3>
 					<tbody>
 						<tr>
 							<th>ID</th>
@@ -119,8 +119,8 @@
 								<td><s:property value="mail"/></td>
 								<td>
 									<script>
-										const gender = "<s:property value="gender" escape="false" />";
-											if (gender == "0") {
+										const gender2 = "<s:property value="gender" escape="false" />";
+											if (gender2 == "0") {
 												document.write("男");
 											} else {
 												document.write("女");
@@ -129,8 +129,8 @@
 								</td>
 								<td>
 									<script>
-										const authority = "<s:property value="authority" escape="false" />";
-											if (authority == "0") {
+										const authority2 = "<s:property value="authority" escape="false" />";
+											if (authority2 == "0") {
 												document.write("一般");
 											} else {
 												document.write("管理者");
