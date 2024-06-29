@@ -119,22 +119,32 @@
 								<td><s:property value="mail"/></td>
 								<td>
 									<script>
-										const gender2 = "<s:property value="gender" escape="false" />";
-											if (gender2 == "0") {
-												document.write("男");
-											} else {
-												document.write("女");
-											}
+										switch ("<s:property value="gender"/>") {
+										case "0":
+											document.write("男");
+											break;
+										case "1":
+											document.write("女");
+											break;
+										default:
+											document.write("");
+											break;
+										}
 									</script>
 								</td>
 								<td>
 									<script>
-										const authority2 = "<s:property value="authority" escape="false" />";
-											if (authority2 == "0") {
-												document.write("一般");
-											} else {
-												document.write("管理者");
-											}
+										switch ("<s:property value="authority"/>") {
+										case "0":
+											document.write("一般");
+											break;
+										case "1":
+											document.write("管理者");
+											break;
+										default:
+											document.write("");
+											break;
+										}
 									</script>
 								</td>
 								<td><s:property value="delete_flag"/></td>
