@@ -35,18 +35,21 @@
 
 			main{
 			    clear: both;
+			    padding-bottom: 30px;
 			}
 
 			.main-container{
 			    margin: 0 auto;
 			}
 
-			h1{
-			    border-left: 5px solid black;
-			    border-bottom: 2px solid black;
-			    color:black;
-			    font-weight: bold;
-			    font-size:25px;
+			table, td, th {
+				border: solid 1px #595959;
+				border-collapse: collapse;
+			}
+
+			td, th {
+				padding: 10px;
+				width: 90px;
 			}
 
 			h3{
@@ -114,11 +117,29 @@
 								<td><s:property value="family_name_kana"/></td>
 								<td><s:property value="last_name_kana"/></td>
 								<td><s:property value="mail"/></td>
-								<td><s:property value="gender"/></td>
-								<td><s:property value="family_name_kana"/></td>
-								<td><s:property value="authority"/></td>
+								<td>
+									<script>
+										const gender = "<s:property value="gender" escape="false" />";
+											if (gender == "0") {
+												document.write("男");
+											} else {
+												document.write("女");
+											}
+									</script>
+								</td>
+								<td>
+									<script>
+										const authority = "<s:property value="authority" escape="false" />";
+											if (authority == "0") {
+												document.write("一般");
+											} else {
+												document.write("管理者");
+											}
+									</script>
+								</td>
 								<td><s:property value="delete_flag"/></td>
 								<td><s:property value="registered_time"/></td>
+								<td><s:property value="update_time"/></td>
 								<td><s:property value="update_time"/></td>
 							</tr>
 						</s:iterator>
