@@ -17,21 +17,21 @@ public class AccountListAction extends ActionSupport implements SessionAware{
 
 	public String execute() {
 
-		String ret = ERROR;
+		String result = SUCCESS;
 
 		AccountListDAO dao=new AccountListDAO(); accountListDTOList = dao.select();
 
 		if(accountListDTOList.size() > 0){
 
 			session.put("accountListDTOList", accountListDTOList);
-			ret = SUCCESS;
+			result = SUCCESS;
 
 		} else {
 
-			ret = ERROR;
+			result = ERROR;
 		}
 
-		return ret;
+		return result;
 
 	}
 	public Map<String, Object> getSession() {
