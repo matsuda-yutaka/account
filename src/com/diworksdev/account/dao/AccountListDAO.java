@@ -11,12 +11,14 @@ import com.diworksdev.account.dto.AccountListDTO;
 import com.diworksdev.account.util.DBConnector;
 
 public class AccountListDAO {
+
 	List<AccountListDTO> accountListDTOList = new ArrayList<AccountListDTO>();
 
 	public List<AccountListDTO> select() {
+
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		String sql = "select * from users";
+		String sql = "select * from account_info";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
