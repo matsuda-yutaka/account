@@ -42,17 +42,23 @@
 			    margin: 0 auto;
 			}
 
-			table, td, th {
+			.maintable, .maintd, .mainth {
 				border: solid 1px #595959;
 				border-collapse: collapse;
 			}
 
-			td, th {
+			.maintd, .mainth {
 				padding: 10px;
 				width: 90px;
 			}
 
-			.submit {
+			.submittd {
+				border-bottom: 1px solid #595959;
+				border-collapse: collapse;
+				padding: 30px;
+				width: 90px;
+				display: flex;
+				justify-content: center;
 			}
 
 			h3{
@@ -95,32 +101,32 @@
         </header>
         <main>
         	<div>
-				<table>
+				<table class="maintable">
 					<h3>アカウント一覧画面</h3>
 					<tbody>
-						<tr>
-							<th>ID</th>
-							<th>名前（性）</th>
-							<th>名前（名）</th>
-							<th>カナ（性）</th>
-							<th>カナ（名）</th>
-							<th>メールアドレス</th>
-							<th>性別</th>
-							<th>アカウント権限</th>
-							<th>削除フラグ</th>
-							<th>登録日時</th>
-							<th>更新日時</th>
-							<th>操作</th>
+						<tr class="maintr">
+							<th class="mainth">ID</th>
+							<th class="mainth">名前（性）</th>
+							<th class="mainth">名前（名）</th>
+							<th class="mainth">カナ（性）</th>
+							<th class="mainth">カナ（名）</th>
+							<th class="mainth">メールアドレス</th>
+							<th class="mainth">性別</th>
+							<th class="mainth">アカウント権限</th>
+							<th class="mainth">削除フラグ</th>
+							<th class="mainth">登録日時</th>
+							<th class="mainth">更新日時</th>
+							<th class="mainth">操作</th>
 						</tr>
 						<s:iterator value="#session.accountListDTOList">
-							<tr>
-								<td><s:property value="id"/></td>
-								<td><s:property value="family_name"/></td>
-								<td><s:property value="last_name"/></td>
-								<td><s:property value="family_name_kana"/></td>
-								<td><s:property value="last_name_kana"/></td>
-								<td><s:property value="mail"/></td>
-								<td>
+							<tr class="maintr">
+								<td class="maintd"><s:property value="id"/></td>
+								<td class="maintd"><s:property value="family_name"/></td>
+								<td class="maintd"><s:property value="last_name"/></td>
+								<td class="maintd"><s:property value="family_name_kana"/></td>
+								<td class="maintd"><s:property value="last_name_kana"/></td>
+								<td class="maintd"><s:property value="mail"/></td>
+								<td class="maintd">
 									<script>
 										switch ("<s:property value="gender"/>") {
 										case "0":
@@ -135,7 +141,7 @@
 										}
 									</script>
 								</td>
-								<td>
+								<td class="maintd">
 									<script>
 										switch ("<s:property value="authority"/>") {
 										case "0":
@@ -150,14 +156,14 @@
 										}
 									</script>
 								</td>
-								<td><s:property value="delete_flag"/></td>
-								<td><s:property value="registered_time"/></td>
-								<td><s:property value="update_time"/></td>
-								<td class= "submit">
-									<s:form action = "UserCreateConfirmAction">
+								<td class="maintd"><s:property value="delete_flag"/></td>
+								<td class="maintd"><s:property value="registered_time"/></td>
+								<td class="maintd"><s:property value="update_time"/></td>
+								<td class="submittd">
+									<s:form action = "UpdateAction">
 										<s:submit value="更新" />
 									</s:form>
-									<s:form action = "UserCreateConfirmAction">
+									<s:form action = "DeleteAction">
 										<s:submit value="削除" />
 									</s:form>
 								</td>
