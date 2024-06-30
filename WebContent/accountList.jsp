@@ -52,6 +52,9 @@
 				width: 90px;
 			}
 
+			.submit {
+			}
+
 			h3{
 			    padding: .25em 0 0 .5em;
 			    border-bottom: 3px dotted darkgray ;
@@ -150,7 +153,14 @@
 								<td><s:property value="delete_flag"/></td>
 								<td><s:property value="registered_time"/></td>
 								<td><s:property value="update_time"/></td>
-								<td><s:property value="update_time"/></td>
+								<td class= "submit">
+									<s:form action = "UserCreateConfirmAction">
+										<s:submit value="更新" />
+									</s:form>
+									<s:form action = "UserCreateConfirmAction">
+										<s:submit value="削除" />
+									</s:form>
+								</td>
 							</tr>
 						</s:iterator>
 					</tbody>
