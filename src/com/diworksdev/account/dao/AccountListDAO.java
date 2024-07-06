@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.diworksdev.account.dto.AccountListDTO;
+import com.diworksdev.account.util.ChangeFromStringToDate;
 import com.diworksdev.account.util.DBConnector;
 
 public class AccountListDAO {
@@ -18,6 +19,7 @@ public class AccountListDAO {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
+		ChangeFromStringToDate changeFromStringToDate = new ChangeFromStringToDate();
 		String sql = "select * from account_info";
 
 		try {
@@ -35,7 +37,6 @@ public class AccountListDAO {
 				dto.setGender(rs.getString("gender"));
 				dto.setAuthority(rs.getString("authority"));
 				dto.setDelete_flag(rs.getString("delete_flag"));
-				dto.setAuthority(rs.getString("authority"));
 				dto.setRegistered_time(rs.getString("registered_time"));
 				dto.setUpdate_time(rs.getString("update_time"));
 
