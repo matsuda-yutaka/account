@@ -157,7 +157,16 @@
 									</script>
 								</td>
 								<td class="maintd"><s:property value="delete_flag"/></td>
-								<td class="maintd"><s:property value="registered_time"/></td>
+								<td class="maintd">
+									<script>
+										//var dateString = "<s:property value="update_time"/>";
+										var dateString = "2024-06-18 20:30:14";
+										var date = new Date(dateString);
+										console.log(date);
+										console.log(date.toLocaleDateString());
+									</script>
+								<!-- <s:property value="registered_time"/> -->
+								</td>
 								<td class="maintd"><s:property value="update_time"/></td>
 								<td class="submittd">
 									<s:form action = "UpdateAction">
