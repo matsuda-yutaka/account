@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.diworksdev.account.dto.AccountListDTO;
-import com.diworksdev.account.util.ChangeFromStringToDate;
 import com.diworksdev.account.util.DBConnector;
 
 public class AccountListDAO {
@@ -19,8 +18,7 @@ public class AccountListDAO {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		ChangeFromStringToDate changeFromStringToDate = new ChangeFromStringToDate();
-		String sql = "select * from account_info";
+		String sql = "select * from account_info order by id desc";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
