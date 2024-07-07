@@ -156,18 +156,47 @@
 										}
 									</script>
 								</td>
-								<td class="maintd"><s:property value="delete_flag"/></td>
 								<td class="maintd">
 									<script>
-										//var dateString = "<s:property value="update_time"/>";
-										var dateString = "2024-06-18 20:30:14";
+										switch ("<s:property value="delete_flag"/>") {
+										case "0":
+											document.write("有効");
+											break;
+										case "1":
+											document.write("無効");
+											break;
+										default:
+											document.write("");
+											break;
+										}
+									</script>
+								</td>
+								<td class="maintd">
+									<script>
+										var dateString = "<s:property value="registered_time"/>";
 										var date = new Date(dateString);
 										console.log(date);
 										console.log(date.toLocaleDateString());
+										if (dateString == 0) {
+											document.write("");
+										} else {
+											document.write(date.toLocaleDateString());
+										}
 									</script>
-								<!-- <s:property value="registered_time"/> -->
 								</td>
-								<td class="maintd"><s:property value="update_time"/></td>
+								<td class="maintd">
+									<script>
+										var dateString = "<s:property value="update_time"/>";
+										var date = new Date(dateString);
+										console.log(date);
+										console.log(date.toLocaleDateString());
+										if (dateString == 0) {
+											document.write("");
+										} else {
+											document.write(date.toLocaleDateString());
+										}
+									</script>
+								</td>
 								<td class="submittd">
 									<s:form action = "UpdateAction">
 										<s:submit value="更新" />

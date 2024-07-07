@@ -19,7 +19,8 @@ public class AccountListAction extends ActionSupport implements SessionAware{
 
 		String result = SUCCESS;
 
-		AccountListDAO dao=new AccountListDAO(); accountListDTOList = dao.select();
+		AccountListDAO dao=new AccountListDAO();
+		accountListDTOList = dao.select();
 
 		if(accountListDTOList.size() > 0){
 

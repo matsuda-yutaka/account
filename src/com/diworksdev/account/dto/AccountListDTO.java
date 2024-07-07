@@ -78,7 +78,7 @@ public class AccountListDTO {
 		this.authority = authority;
 	}
 
-	public String getDelete_flaga() {
+	public String getDelete_flag() {
 		return delete_flag;
 	}
 
