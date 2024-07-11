@@ -201,7 +201,8 @@
 									<s:form action = "UpdateAction">
 										<s:submit value="更新" />
 									</s:form>
-									<s:form action = "DeleteAction">
+									<s:form action = "DeleteAction" method="get">
+										<input type="hidden" name="id" value="<s:property value="id"/>"/>
 										<s:submit value="削除" />
 									</s:form>
 								</td>

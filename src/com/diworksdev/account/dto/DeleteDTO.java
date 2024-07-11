@@ -1,16 +1,7 @@
-package com.diworksdev.account.action;
+package com.diworksdev.account.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+public class DeleteDTO {
 
-import org.apache.struts2.interceptor.SessionAware;
-
-import com.diworksdev.account.dao.DeleteDAO;
-import com.diworksdev.account.dto.DeleteDTO;
-import com.opensymphony.xwork2.ActionSupport;
-
-public class DeleteAction extends ActionSupport implements SessionAware{
 	private String id;
 	private String family_name;
 	private String last_name;
@@ -24,42 +15,6 @@ public class DeleteAction extends ActionSupport implements SessionAware{
 	private String address_1;
 	private String address_2;
 	private String authority;
-	private List<DeleteDTO> deleteDTOList = new ArrayList<DeleteDTO>();
-	private Map<String, Object> session;
-
-	public String execute() {
-		String result = ERROR;
-
-		DeleteDAO dao=new DeleteDAO();
-
-		deleteDTOList=dao.select(id, family_name, last_name, family_name_kana, last_name_kana, mail, password, gender, postal_code, prefecture, address_1, address_2, authority);
-
-		if(this.id.equals(deleteDTOList.get(0).getId())
-				&& this.family_name.equals(deleteDTOList.get(0).getFamily_name())
-				&& this.last_name.equals(deleteDTOList.get(0).getLast_name())
-				&& this.family_name_kana.equals(deleteDTOList.get(0).getFamily_name_kana())
-				&& this.last_name_kana.equals(deleteDTOList.get(0).getLast_name_kana())
-				&& this.mail.equals(deleteDTOList.get(0).getMail())
-				&& this.password.equals(deleteDTOList.get(0).getPassword())
-				&& this.gender.equals(deleteDTOList.get(0).getGender())
-				&& this.postal_code.equals(deleteDTOList.get(0).getPostal_code())
-				&& this.prefecture.equals(deleteDTOList.get(0).getPrefecture())
-				&& this.address_1.equals(deleteDTOList.get(0).getAddress_1())
-				&& this.address_2.equals(deleteDTOList.get(0).getAddress_2())
-				&& this.authority.equals(deleteDTOList.get(0).getAuthority())){
-
-			session.put("deleteDTOList", deleteDTOList);
-
-			result = SUCCESS;
-
-		} else {
-
-			session.put("deleteDTOList", deleteDTOList);
-
-			result = ERROR;
-		}
-		return result;
-	}
 
 	public String getId() {
 		return id;
@@ -163,13 +118,5 @@ public class DeleteAction extends ActionSupport implements SessionAware{
 
 	public void setAuthority(String authority) {
 		this.authority = authority;
-	}
-
-	public Map<String, Object> getSession() {
-		return session;
-	}
-
-	public void setSession(Map<String, Object> session) {
-		this.session = session ;
 	}
 }

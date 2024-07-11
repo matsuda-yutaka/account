@@ -91,6 +91,145 @@
         	<div>
 				<table>
 					<h3>アカウント削除画面</h3>
+					<s:form action = "UserCreateCompleteAction">
+						<s:iterator value="#session.deleteDTOList">
+							<tr id="box">
+								<td>
+									<label>名前（姓）:</label>
+								</td>
+								<td>
+									<s:property value="family_name" />
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>名前（名）:</label>
+								</td>
+								<td>
+									<s:property value="last_name" />
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>カナ（姓）:</label>
+								</td>
+								<td>
+									<s:property value="family_name_kana" />
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>カナ（名）:</label>
+								</td>
+								<td>
+									<s:property value="last_name_kana" />
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>メールアドレス:</label>
+								</td>
+								<td>
+									<s:property value="mail" />
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>パスワード:</label>
+								</td>
+								<td>
+									<script>
+										const str = "<s:property value="password" />";
+										//console.log(str.length);
+										for(var no1 =0; no1 < str.length; no1++){
+											document.write("⚫︎");
+										}
+									</script>
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>性別:</label>
+								</td>
+								<td>
+									<script>
+										const gender = "<s:property value="gender" />";
+											if (gender == 0) {
+												document.write("男");
+											} else {
+												document.write("女");
+											}
+									</script>
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>郵便番号:</label>
+								</td>
+								<td>
+									<s:property value="postal_code" />
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>住所（都道府県）:</label>
+								</td>
+								<td>
+									<s:property value="prefecture" />
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>住所（地区町村）:</label>
+								</td>
+								<td>
+									<s:property value="address_1" />
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>住所（番地）:</label>
+								</td>
+								<td>
+									<script>
+										const address_2 = "<s:property value="address_2" />";
+											if (address_2 != null) {
+												document.write(address_2);
+											} else {
+												document.write();
+											}
+									</script>
+								</td>
+							</tr>
+							<tr id="box">
+								<td>
+									<label>アカウント権限:</label>
+								</td>
+								<td>
+									<script>
+										const authority = "<s:property value="authority" />";
+											if (authority == 0) {
+												document.write("一般");
+											} else {
+												document.write("管理者");
+											}
+									</script>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<s:submit value="登録する" />
+								</td>
+							</tr>
+						</s:iterator>
+					</s:form>
+					<s:form action = "UserCreateGoBackAction">
+						<tr>
+							<td>
+								<button onclick="history.back()">前に戻る</button>
+							</td>
+						</tr>
+					</s:form>
 				</table>
 			</div>
 		</main>

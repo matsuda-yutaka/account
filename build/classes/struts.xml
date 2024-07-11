@@ -41,6 +41,7 @@
 		<!-- DeleteAction -->
 		<action name="DeleteAction" class="com.diworksdev.account.action.DeleteAction" method="execute">
 			<result name="success">delete.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 
 		<!-- UpdateAction -->
