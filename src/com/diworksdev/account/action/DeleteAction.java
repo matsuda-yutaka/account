@@ -34,6 +34,10 @@ public class DeleteAction extends ActionSupport implements SessionAware{
 
 		deleteDTOList=dao.select(id, family_name, last_name, family_name_kana, last_name_kana, mail, password, gender, postal_code, prefecture, address_1, address_2, authority);
 
+		System.out.println(this.id);// 28!!
+		System.out.println(deleteDTOList.get(0).getId());// 28?->該当なし
+		System.out.println(this.family_name);// ???->null!?
+		System.out.println(deleteDTOList.get(0).getFamily_name());// ???->該当なし
 		if(this.id.equals(deleteDTOList.get(0).getId())
 				&& this.family_name.equals(deleteDTOList.get(0).getFamily_name())
 				&& this.last_name.equals(deleteDTOList.get(0).getLast_name())
