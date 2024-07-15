@@ -34,23 +34,9 @@ public class DeleteAction extends ActionSupport implements SessionAware{
 
 		deleteDTOList=dao.select(id, family_name, last_name, family_name_kana, last_name_kana, mail, password, gender, postal_code, prefecture, address_1, address_2, authority);
 
-		System.out.println(this.id);// 28!!
-		System.out.println(deleteDTOList.get(0).getId());// 28?->該当なし
-		System.out.println(this.family_name);// ???->null!?
-		System.out.println(deleteDTOList.get(0).getFamily_name());// ???->該当なし
-		if(this.id.equals(deleteDTOList.get(0).getId())
-				&& this.family_name.equals(deleteDTOList.get(0).getFamily_name())
-				&& this.last_name.equals(deleteDTOList.get(0).getLast_name())
-				&& this.family_name_kana.equals(deleteDTOList.get(0).getFamily_name_kana())
-				&& this.last_name_kana.equals(deleteDTOList.get(0).getLast_name_kana())
-				&& this.mail.equals(deleteDTOList.get(0).getMail())
-				&& this.password.equals(deleteDTOList.get(0).getPassword())
-				&& this.gender.equals(deleteDTOList.get(0).getGender())
-				&& this.postal_code.equals(deleteDTOList.get(0).getPostal_code())
-				&& this.prefecture.equals(deleteDTOList.get(0).getPrefecture())
-				&& this.address_1.equals(deleteDTOList.get(0).getAddress_1())
-				&& this.address_2.equals(deleteDTOList.get(0).getAddress_2())
-				&& this.authority.equals(deleteDTOList.get(0).getAuthority())){
+		//System.out.println(this.id);// 28!!
+		//System.out.println(deleteDTOList.get(0).getId());// 28?->該当なし
+		if(this.id.equals(deleteDTOList.get(0).getId())){
 
 			session.put("deleteDTOList", deleteDTOList);
 
@@ -134,7 +120,7 @@ public class DeleteAction extends ActionSupport implements SessionAware{
 	}
 
 	public void setPostal_code(String postal_code) {
-		this.password = postal_code;
+		this.postal_code = postal_code;
 	}
 
 	public String getPrefecture() {

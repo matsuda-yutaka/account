@@ -85,7 +85,7 @@ public class DeleteDTO {
 	}
 
 	public void setPostal_code(String postal_code) {
-		this.password = postal_code;
+		this.postal_code = postal_code;
 	}
 
 	public String getPrefecture() {

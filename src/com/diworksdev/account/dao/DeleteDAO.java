@@ -33,23 +33,11 @@ public class DeleteDAO {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
-		String sql = "select * from account_info where id=? and family_name=? and last_name=? and family_name_kana=? and last_name_kana=? and mail=? and password=? and gender=? and postal_code=? and prefecture=? and address_1=? and address_2=? and authority=?";
+		String sql = "select * from account_info where id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, id);
-			ps.setString(2, family_name);
-			ps.setString(3, last_name);
-			ps.setString(4, family_name_kana);
-			ps.setString(5, last_name_kana);
-			ps.setString(6, mail);
-			ps.setString(7, password);
-			ps.setString(8, gender);
-			ps.setString(9, postal_code);
-			ps.setString(10, prefecture);
-			ps.setString(11, address_1);
-			ps.setString(12, address_2);
-			ps.setString(13, authority);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
