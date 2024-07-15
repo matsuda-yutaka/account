@@ -91,7 +91,7 @@
         	<div>
 				<table>
 					<h3>アカウント削除画面</h3>
-					<s:form action = "UserCreateCompleteAction">
+					<s:form action = "DeleteConfirmAction">
 						<s:iterator value="#session.deleteDTOList">
 							<tr id="box">
 								<td>
@@ -218,17 +218,10 @@
 							</tr>
 							<tr>
 								<td>
-									<s:submit value="登録する" />
+									<s:submit value="確認する" />
 								</td>
 							</tr>
 						</s:iterator>
-					</s:form>
-					<s:form action = "UserCreateGoBackAction">
-						<tr>
-							<td>
-								<button onclick="history.back()">前に戻る</button>
-							</td>
-						</tr>
 					</s:form>
 				</table>
 			</div>
