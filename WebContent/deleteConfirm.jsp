@@ -98,9 +98,13 @@
 						<p>本当に削除してよろしいですか？</p>
 					</div>
 					<td class="submittd">
-						<s:form action = "DeleteAction">
-							<s:submit value="前に戻る" />
-						</s:form>
+						<input type="button" value="前に戻る" id="btnBack">
+						<script>
+							let btnBack = document.getElementById('btnBack');
+							btnBack.addEventListener('click', function(){
+							    history.back();
+							});
+						</script>
 						<s:form action = "DeleteCompleteAction">
 							<s:submit value="削除する" />
 						</s:form>
