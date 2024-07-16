@@ -10,7 +10,7 @@
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<title>UserCreateomplete画面</title>
+	<title>error画面</title>
 
 		<style type="text/css">
 		/* ========TAG LAYOUT======== */
@@ -57,9 +57,9 @@
 			    font-size:18px;
 			}
 
-			.kanryou{
-				text-align: center;
-				font-size:25px;
+			.error{
+				font-size:15px;
+				color:red;
 			}
 
 			footer{
@@ -90,13 +90,9 @@
         <main>
         	<div>
 				<table>
-					<s:form action = "HomeAction">
-							<h3>アカウント削除完了画面</h3>
-							<div class="kanryou">
-								<p>削除完了しました</p>
-							</div>
-							<s:submit value="TOPページへ戻る" />
-					</s:form>
+					<div class="error">
+						<p>エラーが発生したためアカウント削除できません。</p>
+					</div>
 				</table>
 			</div>
 		</main>

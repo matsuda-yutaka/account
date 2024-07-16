@@ -91,7 +91,7 @@
         	<div>
 				<table>
 					<h3>アカウント削除画面</h3>
-					<s:form action = "DeleteConfirmAction">
+					<s:form action = "DeleteConfirmAction" method="get">
 						<s:iterator value="#session.deleteDTOList">
 							<tr id="box">
 								<td>
@@ -218,6 +218,7 @@
 							</tr>
 							<tr>
 								<td>
+									<input type="hidden" name="id" value="<s:property value="id"/>"/>
 									<s:submit value="確認する" />
 								</td>
 							</tr>
