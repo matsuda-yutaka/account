@@ -16,26 +16,21 @@ public class DeleteCompleteAction extends ActionSupport implements SessionAware 
 	private String delete_flag;
 	private List<DeleteCompleteDTO> deleteCompleteDTOList = new ArrayList<DeleteCompleteDTO>();
 	private Map<String, Object> session;
+	private DeleteCompleteDAO deleteCompleteDAO = new DeleteCompleteDAO();
 
 	public String execute() {
-		String result = ERROR;
-
-		DeleteCompleteDAO dao=new DeleteCompleteDAO();
-
-		deleteCompleteDTOList=dao.select(id, delete_flag);
-
-		System.out.println(this.id);
-		System.out.println(deleteCompleteDTOList.get(0).getId());
-		if(this.id.equals(deleteCompleteDTOList.get(0).getId())){
-
+		String result = SUCCESS;
+		try {
+			DeleteCompleteDAO dao=new DeleteCompleteDAO();
+			deleteCompleteDTOList=dao.select(id, delete_flag);
+			System.out.println(id);
+			deleteCompleteDAO.DeleteComplete(session.get("id").toString());
 			result = SUCCESS;
-
-		} else {
-
-			session.put("deleteCompleteDTOList", deleteCompleteDTOList);
-
+		} catch (Exception e) {
+			e.printStackTrace();
 			result = ERROR;
 		}
+
 		return result;
 	}
 

@@ -105,7 +105,8 @@
 							    history.back();
 							});
 						</script>
-						<s:form action = "DeleteCompleteAction">
+						<s:form action = "DeleteCompleteAction" method="get">
+							<input type="hidden" name="id" value="<s:property value="id"/>"/>
 							<s:submit value="削除する" />
 						</s:form>
 					</td>
