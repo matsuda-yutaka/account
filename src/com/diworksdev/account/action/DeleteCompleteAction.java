@@ -1,5 +1,6 @@
 package com.diworksdev.account.action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,20 +19,29 @@ public class DeleteCompleteAction extends ActionSupport implements SessionAware 
 	private Map<String, Object> session;
 	private DeleteCompleteDAO deleteCompleteDAO = new DeleteCompleteDAO();
 
-	public String execute() {
-		String result = SUCCESS;
-		try {
-			DeleteCompleteDAO dao=new DeleteCompleteDAO();
-			deleteCompleteDTOList=dao.select(id, delete_flag);
-			System.out.println(id);
-			deleteCompleteDAO.DeleteComplete(session.get("id").toString());
+	public String execute() throws SQLException {
+		String result = ERROR;
+
+		DeleteCompleteDAO dao=new DeleteCompleteDAO();
+
+		deleteCompleteDTOList=dao.select(id, delete_flag);
+
+		System.out.println(id);
+		System.out.println(deleteCompleteDTOList.get(0).getId());
+		if(id.equals(deleteCompleteDTOList.get(0).getId())){
+
+			update();
+
 			result = SUCCESS;
-		} catch (Exception e) {
-			e.printStackTrace();
+
+		} else {
+
 			result = ERROR;
 		}
-
 		return result;
+	}
+
+	public void update() throws SQLException {
 	}
 
 	public String getId() {
