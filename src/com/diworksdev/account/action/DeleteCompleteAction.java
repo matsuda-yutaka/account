@@ -30,7 +30,7 @@ public class DeleteCompleteAction extends ActionSupport implements SessionAware 
 		System.out.println(deleteCompleteDTOList.get(0).getId());
 		if(id.equals(deleteCompleteDTOList.get(0).getId())){
 
-			update();
+			DeleteComplete();
 
 			result = SUCCESS;
 
@@ -41,7 +41,10 @@ public class DeleteCompleteAction extends ActionSupport implements SessionAware 
 		return result;
 	}
 
-	public void update() throws SQLException {
+	private void DeleteComplete() throws SQLException {
+		new DeleteCompleteDAO();
+		session.get("id").toString();
+
 	}
 
 	public String getId() {
