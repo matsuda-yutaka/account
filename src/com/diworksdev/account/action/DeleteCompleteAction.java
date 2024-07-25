@@ -19,20 +19,18 @@ public class DeleteCompleteAction extends ActionSupport implements SessionAware 
 	private Map<String, Object> session;
 	private DeleteCompleteDAO deleteCompleteDAO = new DeleteCompleteDAO();
 
-	public String executeupdate() throws SQLException {
+	public String execute() throws SQLException {
 		String result = ERROR;
 
 		DeleteCompleteDAO dao=new DeleteCompleteDAO();
 
+		System.out.println(id);
+		System.out.println(delete_flag);
 		deleteCompleteDTOList=dao.select(id, delete_flag);
 
-		System.out.println(id);
-		System.out.println(deleteCompleteDTOList.get(0).getId());
 		if(id.equals(deleteCompleteDTOList.get(0).getId())){
-
-			int rs = Update(id);
-			deleteCompleteDAO.Update = executeupdate();
-
+			System.out.println(id);
+			int rs = dao.Update(id);
 
 			result = SUCCESS;
 
@@ -41,12 +39,6 @@ public class DeleteCompleteAction extends ActionSupport implements SessionAware 
 			result = ERROR;
 		}
 		return result;
-	}
-
-	private DeleteCompleteDAO Update() throws SQLException {
-		DeleteCompleteDAO deleteCompleteDAO = new DeleteCompleteDAO();
-		String id = session.get("id").toString();
-		return deleteCompleteDAO;
 	}
 
 	public String getId() {
