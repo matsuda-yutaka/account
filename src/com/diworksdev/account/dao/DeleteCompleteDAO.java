@@ -48,7 +48,8 @@ public class DeleteCompleteDAO {
 		return deleteCompleteDTOList;
 	}
 
-	public int DeleteComplete(String id) throws SQLException {
+	//メソッドの名前をDeleteCompleteから実際の処理「Update」に変えた
+	public int Update(String id) throws SQLException {
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
