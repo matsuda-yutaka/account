@@ -54,7 +54,7 @@ public class DeleteCompleteDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 
-		String sql = "UPDATE FROM account_info set delete_flag=1 where id=?";
+		String sql = "UPDATE account_info set delete_flag=1 where id=?";
 		PreparedStatement preparedStatement;
 		int rs =0;
 
