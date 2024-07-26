@@ -198,7 +198,8 @@
 									</script>
 								</td>
 								<td class="submittd">
-									<s:form action = "UpdateAction">
+									<s:form action = "UpdateAction" method="get">
+										<input type="hidden" name="id" value="<s:property value="id"/>"/>
 										<s:submit value="更新" />
 									</s:form>
 									<s:form action = "DeleteAction" method="get">
