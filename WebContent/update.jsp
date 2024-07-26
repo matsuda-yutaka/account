@@ -91,7 +91,7 @@
         	<div>
 				<table>
 					<h3>アカウント更新画面</h3>
-					<s:form action = "UserCreateConfirmAction">
+					<s:form action = "UpdateConfirmAction" method="get">
 						<s:iterator value="#session.deleteDTOList">
 							<tr>
 								<td>
@@ -370,6 +370,7 @@
 								</td>
 							</tr>
 						</s:iterator>
+						<input type="hidden" name="id" value="<s:property value="id"/>"/>
 						<s:submit value="確認する" />
 					</s:form>
 				</table>

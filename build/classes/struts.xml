@@ -60,5 +60,15 @@
 			<result name="success">update.jsp</result>
 		</action>
 
+		<!-- UpdateConfirmAction -->
+		<action name="UpdateConfirmAction" class="com.diworksdev.account.action.UpdateConfirmAction" method="execute">
+			<result name="success">updateConfirm.jsp</result>
+		</action>
+
+		<!-- UpdateGoBackAction  -->
+		<action name="UpdateGoBackAction" class="com.diworksdev.account.action.UpdateGoBackAction" method="execute">
+			<result name="success">updateGoBack.jsp</result>
+		</action>
+
 	</package>
 </struts>
