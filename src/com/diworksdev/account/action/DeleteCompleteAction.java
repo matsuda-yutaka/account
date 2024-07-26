@@ -25,19 +25,23 @@ public class DeleteCompleteAction extends ActionSupport implements SessionAware 
 		DeleteCompleteDAO dao=new DeleteCompleteDAO();
 
 		System.out.println(id);
-		System.out.println(delete_flag);
 		deleteCompleteDTOList=dao.select(id, delete_flag);
 
-		if(id.equals(deleteCompleteDTOList.get(0).getId())){
+		try {
+			if(id.equals(deleteCompleteDTOList.get(0).getId())){
+
 			System.out.println(id);
 			int rs = dao.Update(id);
 
 			result = SUCCESS;
 
-		} else {
+			}
 
+		} catch (Exception e) {
+			e.printStackTrace();
 			result = ERROR;
 		}
+
 		return result;
 	}
 

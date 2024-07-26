@@ -40,11 +40,7 @@ public class DeleteCompleteDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		try {
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+
 		return deleteCompleteDTOList;
 	}
 
