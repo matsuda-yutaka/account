@@ -151,7 +151,7 @@
 								<label>メールアドレス:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="100" name="mail" value="<s:property value="mail" escape="false" />" pattern="[0-9a-zA-Z@-]+$" />
+								<input type="text" maxlength="100" name="mail" value="<s:property value="mail" escape="false" />" pattern="[a-zA-Z0-9\-\@]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -166,7 +166,7 @@
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<input type="password" maxlength="10" name="password" value="<s:property value="password" escape="false" />" pattern="^[a-zA-Z0-9]+$" />
+								<input type="text" maxlength="10" name="password" value="<s:property value="password" escape="false" />" pattern="[a-zA-Z0-9]+$" />
 							</td>
 						</tr>
 						<tr>
@@ -318,7 +318,7 @@
 								<label>住所（番地）:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="100" name="address_2" value="<s:property value="session.address_2" escape="false" />" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
+								<input type="text" maxlength="100" name="address_2" value="<s:property value="address_2" escape="false" />" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
 							</td>
 						</tr>
 						<tr>
@@ -334,7 +334,7 @@
 							</td>
 							<td>
 								<select name="authority">
-									<script>
+								    <script>
 										const auths = {
 										    0: "一般",
 										    1: "管理者",

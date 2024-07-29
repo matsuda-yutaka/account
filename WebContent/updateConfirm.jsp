@@ -89,7 +89,7 @@
         	<div>
 				<table>
 					<h3>アカウント更新確認画面</h3>
-					<s:form action = "UserCreateCompleteAction">
+					<s:form action = "UpdateCompleteAction" method="get">
 						<tr id="box">
 							<td>
 								<label>名前（姓）:</label>
@@ -215,13 +215,15 @@
 						</tr>
 						<tr>
 							<td>
+								<input type="hidden" name="id" value="<s:property value="id"/>"/>
 								<s:submit value="更新する" />
 							</td>
 						</tr>
 					</s:form>
-					<s:form action = "UpdateGoBackAction">
+					<s:form action = "UpdateGoBackAction" method="get">
 						<tr>
 							<td>
+								<input type="hidden" name="id" value="<s:property value="id"/>"/>
 								<button onclick="history.back()">前に戻る</button>
 							</td>
 						</tr>

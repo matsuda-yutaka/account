@@ -63,11 +63,18 @@
 		<!-- UpdateConfirmAction -->
 		<action name="UpdateConfirmAction" class="com.diworksdev.account.action.UpdateConfirmAction" method="execute">
 			<result name="success">updateConfirm.jsp</result>
+			<result name="error">updateInputError.jsp</result>
 		</action>
 
 		<!-- UpdateGoBackAction  -->
 		<action name="UpdateGoBackAction" class="com.diworksdev.account.action.UpdateGoBackAction" method="execute">
 			<result name="success">updateGoBack.jsp</result>
+		</action>
+
+		<!-- UpdateCompleteAction -->
+		<action name="UpdateCompleteAction" class="com.diworksdev.account.action.UpdateCompleteAction" method="execute">
+			<result name="success">updateComplete.jsp</result>
+			<result name="error">updateError.jsp</result>
 		</action>
 
 	</package>
