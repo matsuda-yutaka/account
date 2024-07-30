@@ -47,14 +47,13 @@ public class UpdateCompleteDAO {
 
 	private String sql = "UPDATE account_info set family_name=? last_name=? family_name_kana=? last_name_kana=? mail=? password=? gender=? postal_code=? prefecture=? address_1=? address_2=? authority=? where id=?";
 
-	public int Update(String id, String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String password, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority) throws SQLException {
+	public void Update(String id, String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String password, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority) throws SQLException {
 
 		BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
 		String encodeedPassword = bcpe.encode(password);
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		PreparedStatement preparedStatement;
-		int rs =0;
 
 		try {
 			preparedStatement = connection.prepareStatement(sql);
@@ -73,12 +72,11 @@ public class UpdateCompleteDAO {
 			preparedStatement.setString(13, authority);
 			//preparedStatement.setString(13, dateUtil.getDate());
 
-			rs = preparedStatement.executeUpdate();
+			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			connection.close();
 		}
-		return rs;
 	}
 }
