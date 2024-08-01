@@ -31,22 +31,24 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 	private UpdateCompleteDAO updateCompleteDAO = new UpdateCompleteDAO();
 
 	public String execute() throws SQLException {
-		String result = SUCCESS;
+
+		String result = ERROR;
 
 		UpdateCompleteDAO dao=new UpdateCompleteDAO();
-
 		updateCompleteDTOList=dao.select(id);
+//		last_name, family_name_kana, last_name_kana, mail, password, gender, postal_code, prefecture, address_1, address_2, authority
 
-		System.out.println(id);
-		System.out.println(updateCompleteDTOList.get(0).getId());
 		try {
 			if(id.equals(updateCompleteDTOList.get(0).getId())){
 
 				System.out.println(id);
 				System.out.println(session.get("family_name").toString());
+				System.out.println(session.get("last_name").toString());
+
+				int rs =dao.Update(id);
 
 				updateCompleteDAO.Update(session.get("id").toString(),
-						session.get("family_name").toString(),
+						session.get("family_name").toString()
 						session.get("last_name").toString(),
 						session.get("family_name_kana").toString(),
 						session.get("last_name_kana").toString(),
