@@ -61,7 +61,7 @@ public class UpdateCompleteDAO {
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-		String sql = "UPDATE account_info set family_name=? last_name=? where id=?";
+		String sql = "UPDATE account_info set family_name=?, last_name=? where id=?";
 		//, String last_name, String family_name_kana, String last_name_kana, String mail, String password, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority
 		//BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
 		//String encodeedPassword = bcpe.encode(password);
