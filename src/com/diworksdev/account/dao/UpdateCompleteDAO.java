@@ -55,7 +55,7 @@ public class UpdateCompleteDAO {
 		return updateCompleteDTOList;
 	}
 
-	public int Update(String id) throws SQLException {
+	public int Update(String id, String family_name) throws SQLException {
 
 		//
 
@@ -70,8 +70,8 @@ public class UpdateCompleteDAO {
 
 		try {
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, id);
-//			preparedStatement.setString(2, family_name);
+			preparedStatement.setString(1, family_name);
+			preparedStatement.setString(2, id);
 //			preparedStatement.setString(3, last_name);
 //			preparedStatement.setString(4, family_name_kana);
 //			preparedStatement.setString(5, last_name_kana);
