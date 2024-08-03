@@ -45,22 +45,19 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 				System.out.println(session.get("family_name").toString());
 				System.out.println(session.get("last_name").toString());
 
-				int rs =dao.Update(id, session.get("family_name").toString(), session.get("last_name").toString());
-
-//				updateCompleteDAO.Update(session.get("id").toString(),
-//						session.get("family_name").toString()
-//						session.get("last_name").toString(),
-//						session.get("family_name_kana").toString(),
-//						session.get("last_name_kana").toString(),
-//						session.get("mail").toString(),
-//						session.get("password").toString(),
-//						session.get("gender").toString(),
-//						session.get("postal_code").toString(),
-//						session.get("prefecture").toString(),
-//						session.get("address_1").toString(),
-//						session.get("address_2").toString(),
-//						session.get("authority").toString()
-//						);
+				int rs =dao.Update(id,
+						session.get("family_name").toString(),
+						session.get("last_name").toString(),
+						session.get("family_name_kana").toString(),
+						session.get("last_name_kana").toString(),
+						session.get("mail").toString(),
+						session.get("password").toString(),
+						session.get("gender").toString(),
+						session.get("postal_code").toString(),
+						session.get("prefecture").toString(),
+						session.get("address_1").toString(),
+						session.get("address_2").toString(),
+						session.get("authority").toString());
 				result = SUCCESS;
 			}
 		} catch (Exception e) {
