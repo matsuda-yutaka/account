@@ -34,7 +34,7 @@ public class UpdateCompleteDAO {
 				UpdateCompleteDTO dto = new UpdateCompleteDTO();
 				dto.setId(rs.getString("id"));
 				dto.setFamily_name(rs.getString("family_name"));
-//				dto.setLast_name(rs.getString("last_name"));
+				dto.setLast_name(rs.getString("last_name"));
 //				dto.setFamily_name_kana(rs.getString("family_name_kana"));
 //				dto.setLast_name_kana(rs.getString("last_name_kana"));
 //				dto.setMail(rs.getString("mail"));
@@ -55,13 +55,13 @@ public class UpdateCompleteDAO {
 		return updateCompleteDTOList;
 	}
 
-	public int Update(String id, String family_name) throws SQLException {
+	public int Update(String id, String family_name, String last_name) throws SQLException {
 
 		//
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-		String sql = "UPDATE account_info set family_name=? where id=?";
+		String sql = "UPDATE account_info set family_name=? last_name=? where id=?";
 		//, String last_name, String family_name_kana, String last_name_kana, String mail, String password, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority
 		//BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
 		//String encodeedPassword = bcpe.encode(password);
@@ -71,7 +71,8 @@ public class UpdateCompleteDAO {
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, family_name);
-			preparedStatement.setString(2, id);
+			preparedStatement.setString(2, last_name);
+			preparedStatement.setString(3, id);
 //			preparedStatement.setString(3, last_name);
 //			preparedStatement.setString(4, family_name_kana);
 //			preparedStatement.setString(5, last_name_kana);

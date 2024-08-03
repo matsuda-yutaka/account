@@ -45,7 +45,7 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 				System.out.println(session.get("family_name").toString());
 				System.out.println(session.get("last_name").toString());
 
-				int rs =dao.Update(id, session.get("family_name").toString());
+				int rs =dao.Update(id, session.get("family_name").toString(), session.get("last_name").toString());
 
 //				updateCompleteDAO.Update(session.get("id").toString(),
 //						session.get("family_name").toString()
