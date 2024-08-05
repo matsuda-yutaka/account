@@ -15,6 +15,7 @@ public class UpdateCompleteDTO {
 	private String address_1;
 	private String address_2;
 	private String authority;
+	private String update_time;
 
 	public String getId() {
 		return id;
@@ -118,5 +119,13 @@ public class UpdateCompleteDTO {
 
 	public void setAuthority(String authority) {
 		this.authority = authority;
+	}
+
+	public String getUpdate_time() {
+		return update_time;
+	}
+
+	public void setUpdate_timey(String update_time) {
+		this.update_time = update_time;
 	}
 }

@@ -11,10 +11,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.diworksdev.account.dto.UpdateCompleteDTO;
 import com.diworksdev.account.util.DBConnector;
+import com.diworksdev.account.util.DateUtil;
 
 public class UpdateCompleteDAO {
 	private DBConnector dbConnector = new DBConnector();
 	private Connection connection = dbConnector.getConnection();
+	private DateUtil dateUtil = new DateUtil();
 
 	public List<UpdateCompleteDTO> updateCompleteDTOList = new ArrayList<UpdateCompleteDTO>();
 
@@ -47,6 +49,7 @@ public class UpdateCompleteDAO {
 				dto.setAddress_1(rs.getString("address_1"));
 				dto.setAddress_2(rs.getString("address_2"));
 				dto.setAuthority(rs.getString("authority"));
+				dto.setAuthority(rs.getString("update_time"));
 				updateCompleteDTOList.add(dto);
 			}
 
@@ -57,14 +60,11 @@ public class UpdateCompleteDAO {
 		return updateCompleteDTOList;
 	}
 
-	public int Update(String id, String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String password, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority) throws SQLException {
-
-		//
+	public int Update(String id, String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String password, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority, String update_time) throws SQLException {
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-		String sql = "UPDATE account_info set family_name=?, last_name=?, family_name_kana=?, last_name_kana=?, mail=?, password=?, gender=?, postal_code=?, prefecture=?, address_1=?, address_2=?, authority=? where id=?";
-		//, String last_name, String family_name_kana, String last_name_kana, String mail, String password, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority
+		String sql = "UPDATE account_info set family_name=?, last_name=?, family_name_kana=?, last_name_kana=?, mail=?, password=?, gender=?, postal_code=?, prefecture=?, address_1=?, address_2=?, authority=?, update_time=? where id=?";
 		BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
 		String encodeedPassword = bcpe.encode(password);
 		PreparedStatement preparedStatement;
@@ -84,8 +84,8 @@ public class UpdateCompleteDAO {
 			preparedStatement.setString(10, address_1);
 			preparedStatement.setString(11, address_2);
 			preparedStatement.setString(12, authority);
-			preparedStatement.setString(13, id);
-			//preparedStatement.setString(13, dateUtil.getDate());
+			preparedStatement.setString(13, dateUtil.getDate());
+			preparedStatement.setString(14, id);
 
 			rs = preparedStatement.executeUpdate();
 		} catch (SQLException e) {

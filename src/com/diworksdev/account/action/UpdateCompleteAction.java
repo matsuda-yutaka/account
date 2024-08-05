@@ -26,6 +26,7 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 	private String address_1;
 	private String address_2;
 	private String authority;
+	private String update_time;
 	private List<UpdateCompleteDTO> updateCompleteDTOList = new ArrayList<UpdateCompleteDTO>();
 	private Map<String, Object> session;
 	private UpdateCompleteDAO updateCompleteDAO = new UpdateCompleteDAO();
@@ -36,7 +37,6 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 
 		UpdateCompleteDAO dao=new UpdateCompleteDAO();
 		updateCompleteDTOList=dao.select(id);
-//		last_name, family_name_kana, last_name_kana, mail, password, gender, postal_code, prefecture, address_1, address_2, authority
 
 		try {
 			if(id.equals(updateCompleteDTOList.get(0).getId())){
@@ -57,7 +57,8 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 						session.get("prefecture").toString(),
 						session.get("address_1").toString(),
 						session.get("address_2").toString(),
-						session.get("authority").toString());
+						session.get("authority").toString(),
+						update_time);
 				result = SUCCESS;
 			}
 		} catch (Exception e) {
@@ -169,6 +170,14 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 
 	public void setAuthority(String authority) {
 		this.authority = authority;
+	}
+
+	public String getUpdate_time() {
+		return update_time;
+	}
+
+	public void setUpdate_time(String update_time) {
+		this.update_time = update_time;
 	}
 
 	@Override
