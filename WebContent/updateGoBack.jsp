@@ -166,7 +166,7 @@
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<input type="password" maxlength="10" name="password" value="<s:property value="password" escape="false" />" pattern="^[a-zA-Z0-9]+$" />
+								⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎
 							</td>
 						</tr>
 						<tr>

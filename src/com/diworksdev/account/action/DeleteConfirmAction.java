@@ -15,7 +15,6 @@ public class DeleteConfirmAction extends ActionSupport {
 	private String family_name_kana;
 	private String last_name_kana;
 	private String mail;
-	private String password;
 	private String gender;
 	private String postal_code;
 	private String prefecture;
@@ -30,7 +29,7 @@ public class DeleteConfirmAction extends ActionSupport {
 
 		DeleteDAO dao=new DeleteDAO();
 
-		deleteDTOList=dao.select(id, family_name, last_name, family_name_kana, last_name_kana, mail, password, gender, postal_code, prefecture, address_1, address_2, authority);
+		deleteDTOList=dao.select(id, family_name, last_name, family_name_kana, last_name_kana, mail, gender, postal_code, prefecture, address_1, address_2, authority);
 
 		//System.out.println(id);// 28!!
 		//System.out.println(deleteDTOList.get(0).getId());// 28?->該当なし

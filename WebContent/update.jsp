@@ -57,6 +57,10 @@
 			    font-size:18px;
 			}
 
+			.password {
+				font-size:12px;
+			}
+
 			.error{
 				font-size:15px;
 				color:red;
@@ -173,7 +177,17 @@
 									<label>パスワード:</label>
 								</td>
 								<td>
-									<input type="password" maxlength="10" name="password" value="<s:property value="password" escape="false" />" pattern="^[a-zA-Z0-9]+$" />
+									⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎
+								</td>
+							</tr>
+							<tr>
+								<td class="password">
+									パスワードの変更は
+									<a href='<s:url action="UserCreateAction" method="get"/>'>
+										こちら
+										<input type="hidden" name="id" value="<s:property value="id"/>"/>
+									</a>
+									から
 								</td>
 							</tr>
 							<tr>

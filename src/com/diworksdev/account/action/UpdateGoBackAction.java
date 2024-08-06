@@ -13,7 +13,6 @@ public class UpdateGoBackAction extends ActionSupport implements SessionAware {
 	private String family_name_kana;
 	private String last_name_kana;
 	private String mail;
-	private String password;
 	private String gender;
 	private String postal_code;
 	private String prefecture;
@@ -31,7 +30,6 @@ public class UpdateGoBackAction extends ActionSupport implements SessionAware {
 		mail = session.get("mail").toString();
 		gender = session.get("gender").toString();
 		System.out.println(gender);
-		password = session.get("password").toString();
 		postal_code = session.get("postal_code").toString();
 		prefecture = session.get("prefecture").toString();
 		System.out.println(prefecture);
@@ -81,14 +79,6 @@ public class UpdateGoBackAction extends ActionSupport implements SessionAware {
 
 	public void setMail(String mail) {
 		this.mail = mail;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getGender() {

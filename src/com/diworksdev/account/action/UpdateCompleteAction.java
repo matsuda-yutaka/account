@@ -19,7 +19,6 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 	private String family_name_kana;
 	private String last_name_kana;
 	private String mail;
-	private String password;
 	private String gender;
 	private String postal_code;
 	private String prefecture;
@@ -51,7 +50,6 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 						session.get("family_name_kana").toString(),
 						session.get("last_name_kana").toString(),
 						session.get("mail").toString(),
-						session.get("password").toString(),
 						session.get("gender").toString(),
 						session.get("postal_code").toString(),
 						session.get("prefecture").toString(),
@@ -114,14 +112,6 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 
 	public void setMail(String mail) {
 		this.mail = mail;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getGender() {

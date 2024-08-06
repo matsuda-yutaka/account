@@ -135,13 +135,7 @@
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<script>
-									const str = "<s:property value="password" escape="false" />";
-									//console.log(str.length);
-									for(var no1 =0; no1 < str.length; no1++){
-										document.write("⚫︎");
-									}
-								</script>
+								⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎
 							</td>
 						</tr>
 						<tr id="box">

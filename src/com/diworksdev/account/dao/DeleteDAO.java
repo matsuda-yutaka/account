@@ -18,7 +18,6 @@ public class DeleteDAO {
 	public String family_name_kana;
 	public String last_name_kana;
 	public String mail;
-	public String password;
 	public String gender;
 	public String postal_code;
 	public String prefecture;
@@ -28,7 +27,7 @@ public class DeleteDAO {
 
 	public List<DeleteDTO> deleteDTOList = new ArrayList<DeleteDTO>();
 
-	public List<DeleteDTO> select(String id, String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String password, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority) {
+	public List<DeleteDTO> select(String id, String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String gender, String postal_code, String prefecture, String address_1, String address_2, String authority) {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -48,7 +47,6 @@ public class DeleteDAO {
 				dto.setFamily_name_kana(rs.getString("family_name_kana"));
 				dto.setLast_name_kana(rs.getString("last_name_kana"));
 				dto.setMail(rs.getString("mail"));
-				dto.setPassword(rs.getString("password"));
 				dto.setGender(rs.getString("gender"));
 				dto.setPostal_code(rs.getString("postal_code"));
 				dto.setPrefecture(rs.getString("prefecture"));
@@ -66,7 +64,6 @@ public class DeleteDAO {
 				dto.setFamily_name_kana("該当なし");
 				dto.setLast_name_kana("該当なし");
 				dto.setMail("該当なし");
-				dto.setPassword("該当なし");
 				dto.setGender("該当なし");
 				dto.setPostal_code("該当なし");
 				dto.setPrefecture("該当なし");
