@@ -116,7 +116,7 @@ public class UpdateCompleteDTO {
 		return update_time;
 	}
 
-	public void setUpdate_timey(String update_time) {
+	public void setUpdate_time(String update_time) {
 		this.update_time = update_time;
 	}
 }

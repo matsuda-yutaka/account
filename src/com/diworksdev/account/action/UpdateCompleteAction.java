@@ -38,6 +38,9 @@ public class UpdateCompleteAction extends ActionSupport implements SessionAware 
 		updateCompleteDTOList=dao.select(id);
 
 		try {
+			System.out.println(id);
+			System.out.println(updateCompleteDTOList.get(0).getId());
+
 			if(id.equals(updateCompleteDTOList.get(0).getId())){
 
 				System.out.println(id);

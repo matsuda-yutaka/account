@@ -41,12 +41,12 @@ public class UpdateCompleteDAO {
 				dto.setLast_name_kana(rs.getString("last_name_kana"));
 				dto.setMail(rs.getString("mail"));
 				dto.setGender(rs.getString("gender"));
-				dto.setGender(rs.getString("postal_code"));
+				dto.setPostal_code(rs.getString("postal_code"));
 				dto.setPrefecture(rs.getString("prefecture"));
 				dto.setAddress_1(rs.getString("address_1"));
 				dto.setAddress_2(rs.getString("address_2"));
 				dto.setAuthority(rs.getString("authority"));
-				dto.setAuthority(rs.getString("update_time"));
+				dto.setUpdate_time(rs.getString("update_time"));
 				updateCompleteDTOList.add(dto);
 			}
 

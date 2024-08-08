@@ -183,9 +183,8 @@
 							<tr>
 								<td class="password">
 									パスワードの変更は
-									<a href='<s:url action="UserCreateAction" method="get"/>'>
+									<a href='<s:url action="UserCreateAction" method="get"/>?id=<s:property value="id"/>'>
 										こちら
-										<input type="hidden" name="id" value="<s:property value="id"/>"/>
 									</a>
 									から
 								</td>

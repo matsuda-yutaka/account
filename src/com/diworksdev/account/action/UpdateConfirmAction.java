@@ -26,7 +26,6 @@ public class UpdateConfirmAction extends ActionSupport implements SessionAware {
 	private String errorMessage3;
 	private String errorMessage4;
 	private String errorMessage5;
-	private String errorMessage6;
 	private String errorMessage7;
 	private String errorMessage8;
 	private String errorMessage9;
@@ -37,7 +36,7 @@ public class UpdateConfirmAction extends ActionSupport implements SessionAware {
 	public String execute() {
 
 		String result = SUCCESS;
-
+		System.out.println(session.put("family_name", family_name));
 		if(!(family_name.equals(""))) {
 
 			session.put("family_name", family_name);
@@ -284,14 +283,6 @@ public class UpdateConfirmAction extends ActionSupport implements SessionAware {
 
 	public void setErrorMessage5(String errorMessage5) {
 		this.errorMessage5 = errorMessage5;
-	}
-
-	public String getErrorMessage6() {
-		return errorMessage6;
-	}
-
-	public void setErrorMessage6(String errorMessage6) {
-		this.errorMessage6 = errorMessage6;
 	}
 
 	public String getErrorMessage7() {
