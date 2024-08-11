@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UpdateGoBackAction extends ActionSupport implements SessionAware {
 
+	private String id;
 	private String family_name;
 	private String last_name;
 	private String family_name_kana;
@@ -39,6 +40,14 @@ public class UpdateGoBackAction extends ActionSupport implements SessionAware {
 		System.out.println(authority);
 		return result;
 
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getFamily_name() {

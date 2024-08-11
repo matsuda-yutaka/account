@@ -10,7 +10,7 @@
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<title>パスワード更新確認画面</title>
+	<title>パスワード更新画面</title>
 
 		<style type="text/css">
 			header{
@@ -56,6 +56,10 @@
 			    font-size:18px;
 			}
 
+			.password {
+				font-size:12px;
+			}
+
 			footer{
 			    clear: left;
 			    width: 100%;
@@ -67,10 +71,6 @@
 			    text-align: center;
 			    line-height: 60px;
 			}
-
-			.password{
-				before{content:"●";
-			}
 		</style>
 	</head>
 	<body>
@@ -80,7 +80,7 @@
                 <li>トップ</li>
                 <li>プロフィール</li>
                 <li>D.I.Blogについて</li>
-                <a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>
+                <a href='<s:url action="UserCreateConfirmAction" />'><li>アカウント登録</li></a>
                 <a href='<s:url action="AccountListAction" />'><li>アカウント一覧</li></a>
                 <li>その他</li>
             </ul>
@@ -88,36 +88,25 @@
         <main>
         	<div>
 				<table>
-					<h3>パスワード更新確認画面</h3>
-					<s:form action = "UpdatePasswordCompleteAction" method="get">
-						<tr id="box">
+					<h3>パスワード更新画面</h3>
+					<s:form action = "UpdatePasswordConfirmAction" method="get">
+						<tr>
 							<td>
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<script>
-									const str = "<s:property value="password" escape="false" />";
-									//console.log(str.length);
-									for(var no1 =0; no1 < str.length; no1++){
-										document.write("⚫︎");
-									}
-								</script>
+								<input type="password" maxlength="10" name="password" value="<s:property value="password" escape="false" />" pattern="^[a-zA-Z0-9]+$" />
 							</td>
 						</tr>
 						<tr>
-							<td>
-								<input type="hidden" name="id" value="<s:property value="id"/>"/>
-								<s:submit value="更新する" />
+							<td style="color: red;">
+								<s:if test="errorMessage6 != ''">
+										<s:property value="errorMessage6" escape="false" />
+								</s:if>
 							</td>
 						</tr>
-					</s:form>
-					<s:form action = "UpdatePasswordGoBackAction" method="get">
-						<tr>
-							<td>
-								<input type="hidden" name="id" value="<s:property value="id"/>"/>
-								<button onclick="history.back()">前に戻る</button>
-							</td>
-						</tr>
+						<input type="hidden" name="id" value="<s:property value="id"/>"/>
+						<s:submit value="確認する" />
 					</s:form>
 				</table>
 			</div>

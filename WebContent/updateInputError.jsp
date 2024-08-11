@@ -176,7 +176,8 @@
 						<tr>
 							<td class="password">
 								パスワードの変更は
-								<a href='<s:url action="UserCreateAction" method="get"/>?id=<s:property value="id"/>'>
+								<a href='<s:url action="UpdatePasswordAction"/>?id=<s:property value="id"/>'>
+								<!-- <a href='<s:url action="UpdatePasswordAction" method="get"/>?id=<s:property value="id"/>'> -->
 									こちら
 								</a>
 								から
