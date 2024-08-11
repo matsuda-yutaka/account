@@ -88,5 +88,11 @@
 			<result name="error">updatePasswordError.jsp</result>
 		</action>
 
+		<!-- UpdatePasswordCompleteAction -->
+		<action name="UpdatePasswordCompleteAction" class="com.diworksdev.account.action.UpdatePasswordCompleteAction" method="execute">
+			<result name="success">updateComplete.jsp</result>
+			<result name="error">updateError.jsp</result>
+		</action>
+
 	</package>
 </struts>
