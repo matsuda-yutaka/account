@@ -332,7 +332,7 @@
 									<label>住所（番地）:</label>
 								</td>
 								<td>
-									<input type="text" maxlength="100" name="address_2" value="<s:property value="session.address_2" escape="false" />" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
+									<input type="text" maxlength="100" name="address_2" value="<s:property value="address_2" escape="false" />" pattern="[\u4E00-\u9FFF\u3041-\u309Fー\u30A1-\u30FC\-0-9０-９\s]*" />
 								</td>
 							</tr>
 							<tr>
