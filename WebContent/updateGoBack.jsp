@@ -56,6 +56,10 @@
 			    font-size:18px;
 			}
 
+			.password {
+				font-size:12px;
+			}
+
 			footer{
 			    clear: left;
 			    width: 100%;
@@ -170,10 +174,12 @@
 							</td>
 						</tr>
 						<tr>
-							<td style="color: red;">
-								<s:if test="errorMessage6 != ''">
-										<s:property value="errorMessage6" escape="false" />
-								</s:if>
+							<td class="password">
+								パスワードの変更は
+								<a href='<s:url action="UpdatePasswordAction"/>?id=<s:property value="id"/>'>
+									こちら
+								</a>
+								から
 							</td>
 						</tr>
 						<tr>

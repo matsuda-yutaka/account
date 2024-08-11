@@ -56,6 +56,10 @@
 			    font-size:18px;
 			}
 
+			.password {
+				font-size:12px;
+			}
+
 			footer{
 			    clear: left;
 			    width: 100%;
@@ -166,14 +170,16 @@
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="10" name="password" value="<s:property value="password" escape="false" />" pattern="[a-zA-Z0-9]+$" />
+								⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎
 							</td>
 						</tr>
 						<tr>
-							<td style="color: red;">
-								<s:if test="errorMessage6 != ''">
-										<s:property value="errorMessage6" escape="false" />
-								</s:if>
+							<td class="password">
+								パスワードの変更は
+								<a href='<s:url action="UserCreateAction" method="get"/>?id=<s:property value="id"/>'>
+									こちら
+								</a>
+								から
 							</td>
 						</tr>
 						<tr>
