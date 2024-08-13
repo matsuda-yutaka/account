@@ -10,9 +10,10 @@
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<title>パスワード更新画面</title>
+	<title>ログイン画面</title>
 
 		<style type="text/css">
+		/* ========TAG LAYOUT======== */
 			header{
 			    width: 100%;
 			    height: 60px;
@@ -56,8 +57,9 @@
 			    font-size:18px;
 			}
 
-			.password {
-				font-size:12px;
+			.error{
+				font-size:15px;
+				color:red;
 			}
 
 			footer{
@@ -80,7 +82,7 @@
                 <li>トップ</li>
                 <li>プロフィール</li>
                 <li>D.I.Blogについて</li>
-                <a href='<s:url action="UserCreateConfirmAction" />'><li>アカウント登録</li></a>
+                <a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>
                 <a href='<s:url action="AccountListAction" />'><li>アカウント一覧</li></a>
                 <li>その他</li>
             </ul>
@@ -88,14 +90,29 @@
         <main>
         	<div>
 				<table>
-					<h3>パスワード更新画面</h3>
-					<s:form action = "UpdatePasswordConfirmAction" method="get">
+					<h3>ログイン画面</h3>
+					<s:form action = "LoginAction">
+						<tr>
+							<td>
+								<label>メールアドレス:</label>
+							</td>
+							<td>
+								<input type="text" maxlength="100" name="mail" value="" />
+							</td>
+						</tr>
+						<tr>
+							<td style="color: red;">
+								<s:if test="errorMessage5 != ''">
+										<s:property value="errorMessage5" escape="false" />
+								</s:if>
+							</td>
+						</tr>
 						<tr>
 							<td>
 								<label>パスワード:</label>
 							</td>
 							<td>
-								<input type="text" maxlength="10" name="password" value="<s:property value="password" escape="false" />" pattern="^[a-zA-Z0-9]+$" />
+								<input type="text" maxlength="10" name="password" value=""  />
 							</td>
 						</tr>
 						<tr>
@@ -105,12 +122,11 @@
 								</s:if>
 							</td>
 						</tr>
-						<input type="hidden" name="id" value="<s:property value="id"/>"/>
-						<s:submit value="確認する" />
+						<s:submit value="ログイン" />
 					</s:form>
 				</table>
 			</div>
-       	</main>
+		</main>
         <footer>
             Copyright all right reserved diworks 2015 - 2018
         </footer>

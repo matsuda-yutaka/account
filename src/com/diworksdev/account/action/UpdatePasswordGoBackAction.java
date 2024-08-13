@@ -14,7 +14,7 @@ public class UpdatePasswordGoBackAction extends ActionSupport implements Session
 
 	public String execute() {
 		String result = SUCCESS;
-		password = session.get("passworde").toString();
+		password = session.get("password").toString();
 		return result;
 
 	}
