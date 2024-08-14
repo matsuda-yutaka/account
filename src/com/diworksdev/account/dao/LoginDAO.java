@@ -22,23 +22,24 @@ public class LoginDAO {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
+		BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
 
-		String sql = "select * from account_info where mail=? and password=?";
+		String sql = "select * from account_info where mail=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, mail);
-			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 
 		while (rs.next()) {
 			//取得した結果を1件ずつDTOに格納し、更にDTOをArrayListに格納している
 			LoginDTO dto = new LoginDTO();
 			dto.setMail(rs.getString("mail"));
-			BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
-			bcpe.matches(password, loginDTOList.get(0).getPassword());
-			dto.setPassword(rs.getString("password"));
-			loginDTOList.add(dto);
+
+			if (bcpe.matches(password, (rs.getString("password")))) {
+				dto.setPassword(password);
+				loginDTOList.add(dto);
+			}
 		}
 
 		if(loginDTOList.size()<=0){
