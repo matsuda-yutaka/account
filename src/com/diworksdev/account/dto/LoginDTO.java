@@ -4,6 +4,7 @@ public class LoginDTO {
 
 	private String mail;
 	private String password;
+	private String authority;
 
 	public String getMail() {
 		return mail;
@@ -19,5 +20,13 @@ public class LoginDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 }

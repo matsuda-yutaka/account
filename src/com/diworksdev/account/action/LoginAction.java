@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport implements SessionAware{
 	private String mail;
 	private String password;
+	private String authority;
 	private List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
 	private Map<String, Object> session;
 
@@ -25,6 +26,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		System.out.println(this.password);
 		System.out.println(loginDTOList.get(0).getPassword());
+		System.out.println(loginDTOList.get(0).getAuthority());
 
 		if(this.mail.equals(loginDTOList.get(0).getMail()) && this.password.equals(loginDTOList.get(0).getPassword())){
 			session.put("loginDTOList", loginDTOList);
@@ -53,6 +55,14 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 
 	public Map<String, Object> getSession() {

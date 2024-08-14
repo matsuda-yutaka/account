@@ -15,6 +15,7 @@ import com.diworksdev.account.util.DBConnector;
 public class LoginDAO {
 	public String mail;
 	public String password;
+	public String authority;
 
 	public List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
 
@@ -35,6 +36,7 @@ public class LoginDAO {
 			//取得した結果を1件ずつDTOに格納し、更にDTOをArrayListに格納している
 			LoginDTO dto = new LoginDTO();
 			dto.setMail(rs.getString("mail"));
+			dto.setAuthority(rs.getString("authority"));
 
 			if (bcpe.matches(password, (rs.getString("password")))) {
 				dto.setPassword(password);
@@ -46,6 +48,7 @@ public class LoginDAO {
 			LoginDTO dto = new LoginDTO();
 			dto.setMail("該当なし");
 			dto.setPassword("該当なし");
+			dto.setAuthority("該当なし");
 			loginDTOList.add(dto);
 		}
 
