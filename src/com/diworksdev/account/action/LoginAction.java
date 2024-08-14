@@ -23,6 +23,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		loginDTOList=dao.select(mail, password);
 
+		System.out.println(this.password);
+		System.out.println(loginDTOList.get(0).getPassword());
+
 		if(this.mail.equals(loginDTOList.get(0).getMail()) && this.password.equals(loginDTOList.get(0).getPassword())){
 			session.put("loginDTOList", loginDTOList);
 
