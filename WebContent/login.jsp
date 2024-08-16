@@ -82,8 +82,6 @@
                 <li>トップ</li>
                 <li>プロフィール</li>
                 <li>D.I.Blogについて</li>
-                <a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>
-                <a href='<s:url action="AccountListAction" />'><li>アカウント一覧</li></a>
                 <li>その他</li>
             </ul>
         </header>
@@ -122,6 +120,7 @@
 								</s:if>
 							</td>
 						</tr>
+						<input type="hidden" name="authority" value="<s:property value="authority"/>"/>
 						<s:submit value="ログイン" />
 					</s:form>
 				</table>
