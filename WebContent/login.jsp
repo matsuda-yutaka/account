@@ -91,7 +91,7 @@
         	<div>
 				<table>
 					<h3>ログイン画面</h3>
-					<s:form action = "LoginAction">
+					<s:form action = "LoginAction" method="get">
 						<tr>
 							<td>
 								<label>メールアドレス:</label>

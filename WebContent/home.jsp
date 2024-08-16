@@ -114,8 +114,20 @@
                 <li>トップ</li>
                 <li>プロフィール</li>
                 <li>D.I.Blogについて</li>
-                <a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>
-                <a href='<s:url action="AccountListAction" />'><li>アカウント一覧</li></a>
+                <script>
+					switch ("<s:property value="password"/>") {
+					case "0":
+						document.write("");
+						break;
+					case "1":
+						document.write("<a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>");
+						document.write("<a href='<s:url action="AccountListAction" />'><li>アカウント一覧</li></a>");
+						break;
+					default:
+						document.write("");
+						break;
+					}
+				</script>
                 <li>その他</li>
             </ul>
         </header>

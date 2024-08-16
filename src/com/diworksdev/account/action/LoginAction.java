@@ -22,7 +22,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		LoginDAO dao=new LoginDAO();
 
-		loginDTOList=dao.select(mail, password);
+		loginDTOList=dao.select(mail, password, authority);
 
 		System.out.println(this.password);
 		System.out.println(loginDTOList.get(0).getPassword());

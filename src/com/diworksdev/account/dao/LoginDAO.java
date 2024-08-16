@@ -19,7 +19,7 @@ public class LoginDAO {
 
 	public List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
 
-	public List<LoginDTO> select(String mail, String password) {
+	public List<LoginDTO> select(String mail, String password, String authority)  {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
