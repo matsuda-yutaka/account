@@ -99,13 +99,6 @@
 							</td>
 						</tr>
 						<tr>
-							<td style="color: red;">
-								<s:if test="errorMessage5 != ''">
-										<s:property value="errorMessage5" escape="false" />
-								</s:if>
-							</td>
-						</tr>
-						<tr>
 							<td>
 								<label>パスワード:</label>
 							</td>
@@ -115,8 +108,8 @@
 						</tr>
 						<tr>
 							<td style="color: red;">
-								<s:if test="errorMessage6 != ''">
-										<s:property value="errorMessage6" escape="false" />
+								<s:if test="errorMessage != ''">
+										<s:property value="errorMessage" escape="false" />
 								</s:if>
 							</td>
 						</tr>

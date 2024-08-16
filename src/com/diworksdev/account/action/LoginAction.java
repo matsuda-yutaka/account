@@ -16,6 +16,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private String authority;
 	private List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
 	private Map<String, Object> session;
+	private String errorMessage;
 
 	public String execute() {
 		String result =ERROR;
@@ -35,7 +36,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		} else {
 			session.put("loginDTOList", loginDTOList);
-
+			setErrorMessage("エラーが発生したためログイン情報を取得できません。");
 			result =ERROR;
 		}
 		return result ;
@@ -72,4 +73,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session) {
 		this.session = session ;
 	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
 }
