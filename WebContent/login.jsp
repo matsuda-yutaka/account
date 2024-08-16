@@ -113,7 +113,6 @@
 								</s:if>
 							</td>
 						</tr>
-						<input type="hidden" name="authority" value="<s:property value="authority"/>"/>
 						<s:submit value="ログイン" />
 					</s:form>
 				</table>
