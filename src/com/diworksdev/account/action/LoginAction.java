@@ -59,10 +59,15 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 
 	public String getAuthority() {
+		System.out.println("getAuthority()");
+		System.out.println(authority);
 		return authority;
 	}
 
 	public void setAuthority(String authority) {
+		System.out.println("setAuthority()");
+		System.out.println(this.authority);
+		System.out.println(authority);
 		this.authority = authority;
 	}
 

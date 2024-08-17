@@ -114,7 +114,7 @@
                 <li>トップ</li>
                 <li>プロフィール</li>
                 <li>D.I.Blogについて</li>
-                <s:iterator value="#session.LoginDTOList">
+                <s:iterator value="#session.loginDTOList">
 	                <script>
 						switch ("<s:property value="authority"/>") {
 						case "0":
