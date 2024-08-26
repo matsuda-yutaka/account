@@ -86,5 +86,4 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
-
 }
