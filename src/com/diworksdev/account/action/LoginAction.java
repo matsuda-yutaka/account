@@ -10,7 +10,7 @@ import com.diworksdev.account.dao.LoginDAO;
 import com.diworksdev.account.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport implements SessionAware{
+public class LoginAction extends ActionSupport implements SessionAware {
 	private String mail;
 	private String password;
 	private String authority;
@@ -27,7 +27,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 //		System.out.println(this.password);
 //		System.out.println(loginDTOList.get(0).getPassword());
-//		System.out.println(loginDTOList.get(0).getAuthority());
+		System.out.println(loginDTOList.get(0).getAuthority());
 
 		if(this.mail.equals(loginDTOList.get(0).getMail()) && this.password.equals(loginDTOList.get(0).getPassword())){
 			session.put("loginDTOList", loginDTOList);

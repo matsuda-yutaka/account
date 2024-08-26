@@ -1,43 +1,45 @@
 package com.diworksdev.account.action;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.diworksdev.account.dao.LoginDAO;
 import com.diworksdev.account.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class UserCreateAction extends ActionSupport {
-
+public class UserCreateAction extends ActionSupport implements SessionAware {
+	private String mail;
+	private String password;
+	private String authority;
 	private Map<String, Object> session;
-	private LoginDAO loginDAO = new LoginDAO ();
 	private List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
 
-	public String execute() throws SQLException {
+	public String execute() {
+		String result =ERROR;
 
-		HttpSession session = request.getSession();
+		LoginDAO dao = new LoginDAO();
 
-		if(session.getAttribute("loginDTOList", authority.equals("1"))) {
+		loginDTOList = dao.select(mail, password, authority);
 
-			String result = SUCCESS;
+		System.out.println(loginDTOList.get(0).getAuthority());
+		if((loginDTOList.get(0).getAuthority()).equals("1")) {
+
+			result = SUCCESS;
 
 		} else {
-			String result = ERROR;
-			return result;
+			result =ERROR;
 		}
+		return result ;
 	}
 
 	public Map<String, Object> getSession() {
-
 		return session;
 	}
 
 	public void setSession(Map<String, Object> session) {
-
 		this.session = session;
 	}
 }
