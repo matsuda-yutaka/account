@@ -118,7 +118,8 @@
 	                <script>
 						switch ("<s:property value="authority"/>") {
 						case "0":
-							document.write("");
+							document.write("<a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>");
+							document.write("<a href='<s:url action="AccountListAction" />'><li>アカウント一覧</li></a>");
 							break;
 						case "1":
 							document.write("<a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>");

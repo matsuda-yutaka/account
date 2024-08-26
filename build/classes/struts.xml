@@ -8,6 +8,7 @@
 		<!-- UserCreateAction -->
 		<action name="UserCreateAction" class="com.diworksdev.account.action.UserCreateAction" method="execute">
 			<result name="success">userCreate.jsp</result>
+			<result name="error">userCreateError.jsp</result>
 		</action>
 
 		<!-- UserCreateConfirmAction -->
@@ -58,6 +59,7 @@
 		<!-- UpdateAction -->
 		<action name="UpdateAction" class="com.diworksdev.account.action.UpdateAction" method="execute">
 			<result name="success">update.jsp</result>
+			<result name="error">updateError.jsp</result>
 		</action>
 
 		<!-- UpdateConfirmAction -->
