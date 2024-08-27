@@ -1,38 +1,35 @@
 package com.diworksdev.account.action;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.diworksdev.account.dao.LoginDAO;
-import com.diworksdev.account.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserCreateAction extends ActionSupport implements SessionAware {
-	private String mail;
-	private String password;
 	private String authority;
 	private Map<String, Object> session;
-	private List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
 
 	public String execute() {
-		String result =ERROR;
 
-		LoginDAO dao = new LoginDAO();
+		String result = SUCCESS;
 
-		loginDTOList = dao.select(mail, password, authority);
-
-		System.out.println(loginDTOList.get(0).getAuthority());
-		if((loginDTOList.get(0).getAuthority()).equals("1")) {
-
+		System.out.println(session.get("authority"));
+		if(session.get("authority").equals("1")) {
 			result = SUCCESS;
 
 		} else {
-			result =ERROR;
+			result = ERROR;
 		}
-		return result ;
+		return result;
+	}
+
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 
 	public Map<String, Object> getSession() {
@@ -40,6 +37,6 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	}
 
 	public void setSession(Map<String, Object> session) {
-		this.session = session;
+		this.session = session ;
 	}
 }

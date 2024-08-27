@@ -31,6 +31,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 		if(this.mail.equals(loginDTOList.get(0).getMail()) && this.password.equals(loginDTOList.get(0).getPassword())){
 			session.put("loginDTOList", loginDTOList);
+			session.put("authority", authority);
 
 			result = SUCCESS;
 
