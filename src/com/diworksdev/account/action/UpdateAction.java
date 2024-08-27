@@ -36,7 +36,7 @@ public class UpdateAction extends ActionSupport implements SessionAware{
 		deleteDTOList=dao.select(id, family_name, last_name, family_name_kana, last_name_kana, mail, gender, postal_code, prefecture, address_1, address_2, authority);
 
 		System.out.println(this.authority);
-		if(this.id.equals(deleteDTOList.get(0).getId()) && this.authority.equals(loginDTOList.get(0).getAuthority())){
+		if(this.id.equals(deleteDTOList.get(0).getId()) && this.authority.equals(loginDTOList.get(0).getAuthority()) && session.get("authority").equals("1")){
 
 			session.put("deleteDTOList", deleteDTOList);
 

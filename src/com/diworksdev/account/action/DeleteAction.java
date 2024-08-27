@@ -35,7 +35,7 @@ public class DeleteAction extends ActionSupport implements SessionAware{
 
 		//System.out.println(this.id);// 28!!
 		//System.out.println(deleteDTOList.get(0).getId());// 28?->該当なし
-		if(this.id.equals(deleteDTOList.get(0).getId())){
+		if(this.id.equals(deleteDTOList.get(0).getId()) && session.get("authority").equals("1")){
 
 			session.put("deleteDTOList", deleteDTOList);
 
