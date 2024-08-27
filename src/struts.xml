@@ -8,7 +8,7 @@
 		<!-- UserCreateAction -->
 		<action name="UserCreateAction" class="com.diworksdev.account.action.UserCreateAction" method="execute">
 			<result name="success">userCreate.jsp</result>
-			<result name="error">userCreateError.jsp</result>
+			<result name="error">authorityError.jsp</result>
 		</action>
 
 		<!-- UserCreateConfirmAction -->

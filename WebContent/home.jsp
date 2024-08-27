@@ -126,9 +126,7 @@
 							document.write("<a href='<s:url action="AccountListAction" />'><li>アカウント一覧</li></a>");
 							break;
 						default:
-							document.write("<a href='<s:url action="UserCreateAction" />'><li>アカウント登録</li></a>");
-							document.write("<a href='<s:url action="AccountListAction" />'><li>アカウント一覧</li></a>");
-
+							document.write("");
 							break;
 						}
 					</script>

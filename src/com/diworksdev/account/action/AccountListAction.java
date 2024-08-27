@@ -22,7 +22,7 @@ public class AccountListAction extends ActionSupport implements SessionAware{
 		AccountListDAO dao=new AccountListDAO();
 		accountListDTOList = dao.select();
 
-		if(accountListDTOList.size() > 0){
+		if(accountListDTOList.size() > 0 && session.get("authority").equals("1")){
 
 			session.put("accountListDTOList", accountListDTOList);
 			result = SUCCESS;
