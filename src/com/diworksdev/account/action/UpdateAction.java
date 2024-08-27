@@ -8,7 +8,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.diworksdev.account.dao.DeleteDAO;
 import com.diworksdev.account.dto.DeleteDTO;
-import com.diworksdev.account.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UpdateAction extends ActionSupport implements SessionAware{
@@ -25,7 +24,6 @@ public class UpdateAction extends ActionSupport implements SessionAware{
 	private String address_2;
 	private String authority;
 	private List<DeleteDTO> deleteDTOList = new ArrayList<DeleteDTO>();
-	private List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
 	private Map<String, Object> session;
 
 	public String execute() {
@@ -36,7 +34,7 @@ public class UpdateAction extends ActionSupport implements SessionAware{
 		deleteDTOList=dao.select(id, family_name, last_name, family_name_kana, last_name_kana, mail, gender, postal_code, prefecture, address_1, address_2, authority);
 
 		System.out.println(this.authority);
-		if(this.id.equals(deleteDTOList.get(0).getId()) && this.authority.equals(loginDTOList.get(0).getAuthority()) && session.get("authority").equals("1")){
+		if(this.id.equals(deleteDTOList.get(0).getId()) && session.get("authority").equals("1")){
 
 			session.put("deleteDTOList", deleteDTOList);
 
