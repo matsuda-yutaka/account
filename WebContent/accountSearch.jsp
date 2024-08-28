@@ -164,11 +164,121 @@
 								</select>
 							</th>
 							<th class="searchth" colspan="2">
-								<s:form action = "AccountSearchAction">
+								<s:form action = "UpdateAction" method="get">
+									<input type="hidden" name="id" value="<s:property value="id"/>"/>
 									<s:submit value="検索" class="button"/>
 								</s:form>
 							</th>
 						</tr>
+					</tbody>
+				</table>
+				<table class="maintable">
+					<tbody>
+						<tr class="maintr">
+							<th class="mainth">ID</th>
+							<th class="mainth">名前（性）</th>
+							<th class="mainth">名前（名）</th>
+							<th class="mainth">カナ（性）</th>
+							<th class="mainth">カナ（名）</th>
+							<th class="mainth">メールアドレス</th>
+							<th class="mainth">性別</th>
+							<th class="mainth">アカウント権限</th>
+							<th class="mainth">削除フラグ</th>
+							<th class="mainth">登録日時</th>
+							<th class="mainth">更新日時</th>
+							<th class="mainth">操作</th>
+						</tr>
+						<s:iterator value="#session.accountListDTOList">
+							<tr class="maintr">
+								<td class="maintd"><s:property value="id"/></td>
+								<td class="maintd"><s:property value="family_name"/></td>
+								<td class="maintd"><s:property value="last_name"/></td>
+								<td class="maintd"><s:property value="family_name_kana"/></td>
+								<td class="maintd"><s:property value="last_name_kana"/></td>
+								<td class="maintd"><s:property value="mail"/></td>
+								<td class="maintd">
+									<script>
+										switch ("<s:property value="gender"/>") {
+										case "0":
+											document.write("男");
+											break;
+										case "1":
+											document.write("女");
+											break;
+										default:
+											document.write("");
+											break;
+										}
+									</script>
+								</td>
+								<td class="maintd">
+									<script>
+										switch ("<s:property value="authority"/>") {
+										case "0":
+											document.write("一般");
+											break;
+										case "1":
+											document.write("管理者");
+											break;
+										default:
+											document.write("");
+											break;
+										}
+									</script>
+								</td>
+								<td class="maintd">
+									<script>
+										switch ("<s:property value="delete_flag"/>") {
+										case "0":
+											document.write("有効");
+											break;
+										case "1":
+											document.write("無効");
+											break;
+										default:
+											document.write("");
+											break;
+										}
+									</script>
+								</td>
+								<td class="maintd">
+									<script>
+										var dateString = "<s:property value="registered_time"/>";
+										var date = new Date(dateString);
+										console.log(date);
+										console.log(date.toLocaleDateString());
+										if (dateString == 0) {
+											document.write("");
+										} else {
+											document.write(date.toLocaleDateString());
+										}
+									</script>
+								</td>
+								<td class="maintd">
+									<script>
+										var dateString = "<s:property value="update_time"/>";
+										var date = new Date(dateString);
+										console.log(date);
+										console.log(date.toLocaleDateString());
+										if (dateString == 0) {
+											document.write("");
+										} else {
+											document.write(date.toLocaleDateString());
+										}
+									</script>
+								</td>
+								<td class="submittd">
+									<s:form action = "UpdateAction" method="get">
+										<input type="hidden" name="id" value="<s:property value="id"/>"/>
+										<s:submit value="更新" />
+									</s:form>
+									<s:form action = "DeleteAction" method="get">
+										<input type="hidden" name="id" value="<s:property value="id"/>"/>
+										<s:submit value="削除" />
+									</s:form>
+								</td>
+							</tr>
+						</s:iterator>
 					</tbody>
 				</table>
 			</div>
