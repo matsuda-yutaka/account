@@ -42,9 +42,27 @@
 			    margin: 0 auto;
 			}
 
-			.maintable, .maintd, .mainth {
+			.searchtable {
+				margin-bottom: 100px;
+			}
+
+			.searchtd, .searchth {
+				padding: 10px;
+				width: 300px;
+			}
+
+			.searchtable, .searchtd, .searchth, .maintable, .maintd, .mainth {
 				border: solid 1px #595959;
 				border-collapse: collapse;
+			}
+
+			form {
+				width: fit-content;
+   				margin: auto;
+			}
+
+			.button {
+				width: 180pt;
 			}
 
 			.maintd, .mainth {
@@ -101,8 +119,60 @@
         </header>
         <main>
         	<div>
+        		<h3>アカウント一覧画面</h3>
+				<table class="searchtable">
+					<tbody>
+						<tr class="maintr">
+							<th class="searchth">名前（性）</th>
+							<th class="searchth">
+								<input type="text" name="family_name" value="" style="width:250px;" />
+							</th>
+							<th class="searchth">名前（名）</th>
+							<th class="searchth">
+								<input type="text" name="last_name" value="" style="width:250px;" />
+							</th>
+						</tr>
+						<tr class="maintr">
+							<th class="searchth">カナ（性）</th>
+							<th class="searchth">
+								<input type="text" name="family_name_kana" value="" style="width:250px;" />
+							</th>
+							<th class="searchth">カナ（名）</th>
+							<th class="searchth">
+								<input type="text" name="last_name_kana" value="" style="width:250px;" />
+							</th>
+						</tr>
+						<tr class="maintr">
+							<th class="searchth">メールアドレス</th>
+							<th class="searchth">
+								<input type="text" name="mail" value="" style="width:250px;" />
+							</th>
+							<th class="searchth">性別</th>
+							<th class="searchth">
+								<input type="radio" name="gender" value=0 checked/>
+								<label for="男">男</label>
+								<input type="radio" name="gender" value=1 />
+								<label for="女">女</label>
+							</th>
+						</tr>
+						<tr class="maintr">
+							<th class="searchth">アカウント権限</th>
+							<th class="searchth">
+								<select name="authority" style="width:100px;">
+								    <option value=0>一般</option>
+								    <option value=1>管理者</option>
+								</select>
+							</th>
+							<th class="searchth" colspan="2">
+								<s:form action = "UpdateAction" method="get">
+									<input type="hidden" name="id" value="<s:property value="id"/>"/>
+									<s:submit value="検索" class="button"/>
+								</s:form>
+							</th>
+						</tr>
+					</tbody>
+				</table>
 				<table class="maintable">
-					<h3>アカウント一覧画面</h3>
 					<tbody>
 						<tr class="maintr">
 							<th class="mainth">ID</th>
