@@ -20,12 +20,11 @@ public class AccountSearchAction extends ActionSupport implements SessionAware{
 		String result = SUCCESS;
 
 		AccountListDAO dao=new AccountListDAO();
-		accountListDTOList = dao.select();
+		accountListDTOList = dao.select(family_name);
 
 		System.out.println(this.family_name);
 
-		if(this.family_name.equals(accountListDTOList.get(0).getFamily_name())){
-//		if(accountListDTOList.size() > 0 && this.family_name.equals(accountListDTOList.get(0).getFamily_name())){
+		if(accountListDTOList.size() > 0){
 
 			session.put("accountListDTOList", accountListDTOList);
 			result = SUCCESS;

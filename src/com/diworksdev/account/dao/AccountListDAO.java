@@ -12,16 +12,19 @@ import com.diworksdev.account.util.DBConnector;
 
 public class AccountListDAO {
 
+	public String family_name;
+
 	List<AccountListDTO> accountListDTOList = new ArrayList<AccountListDTO>();
 
-	public List<AccountListDTO> select() {
+	public List<AccountListDTO> select(String family_name) {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		String sql = "select * from account_info order by id desc";
+		String sql = "select * from account_info where family_name=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, family_name);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()) {
