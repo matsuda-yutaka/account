@@ -158,13 +158,16 @@
 									<label for="男">男</label>
 									<input type="radio" name="gender" value=1 />
 									<label for="女">女</label>
+									<input type="radio" name="gender" value="" />
+									<label for="未選択">未選択</label>
 								</th>
 							</tr>
 							<tr class="maintr">
 								<th class="searchth">アカウント権限</th>
 								<th class="searchth">
 									<select name="authority" style="width:100px;">
-									    <option value=0>一般</option>
+										<option value="">未選択</option>
+									    <option value=0 selected>一般</option>
 									    <option value=1>管理者</option>
 									</select>
 								</th>

@@ -29,7 +29,6 @@ public class AccountListDAO {
 		String sql = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and last_name_kana like ? and mail like ? and gender = ? and authority = ?";
 
 		try {
-			System.out.println(family_name);
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, "%" + family_name + "%");
 			ps.setString(2, "%" + last_name + "%");
@@ -53,6 +52,24 @@ public class AccountListDAO {
 				dto.setDelete_flag(rs.getString("delete_flag"));
 				dto.setRegistered_time(rs.getString("registered_time"));
 				dto.setUpdate_time(rs.getString("update_time"));
+
+				accountListDTOList.add(dto);
+			}
+
+			System.out.println(family_name);
+			System.out.println(gender);
+			System.out.println(authority);
+
+			if(family_name.equals("") && last_name.equals("") && family_name_kana.equals("") && last_name_kana.equals("") && mail.equals("") && gender.equals("") && authority.equals("")){
+				AccountListDTO dto=new AccountListDTO();
+				dto.setId(rs.getString("id"));
+				dto.setFamily_name(rs.getString("family_name"));
+				dto.setLast_name(rs.getString("last_name"));
+				dto.setFamily_name_kana(rs.getString("family_name_kana"));
+				dto.setLast_name_kana(rs.getString("last_name_kana"));
+				dto.setMail(rs.getString("mail"));
+				dto.setGender(rs.getString("gender"));
+				dto.setAuthority(rs.getString("authority"));
 
 				accountListDTOList.add(dto);
 			}
