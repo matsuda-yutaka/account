@@ -110,7 +110,7 @@
 		<!-- AccountSearchAction -->
 		<action name="AccountSearchAction" class="com.diworksdev.account.action.AccountSearchAction" method="execute">
 			<result name="success">accountSearch.jsp</result>
-			<result name="error">accountSearch.jsp</result>
+			<result name="error">accountSearchError.jsp</result>
 		</action>
 
 	</package>
