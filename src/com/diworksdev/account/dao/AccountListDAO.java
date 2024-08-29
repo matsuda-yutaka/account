@@ -13,30 +13,33 @@ import com.diworksdev.account.util.DBConnector;
 public class AccountListDAO {
 
 	public String family_name;
-	public String last_name;
-	public String family_name_kana;
-	public String last_name_kana;
-	public String mail;
-	public String gender;
-	public String authority;
+//	public String last_name;
+//	public String family_name_kana;
+//	public String last_name_kana;
+//	public String mail;
+//	public String gender;
+//	public String authority;
 
 	List<AccountListDTO> accountListDTOList = new ArrayList<AccountListDTO>();
 
-	public List<AccountListDTO> select(String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String gender, String authority) {
+	public List<AccountListDTO> select(String family_name) {
+//	public List<AccountListDTO> select(String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String gender, String authority) {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		String sql = "select * from account_info where family_name=? and last_name=? and family_name_kana=? and last_name_kana=? and mail=? and gender=? and authority=?";
+		String sql = "select * from account_info where family_name like ?";
+//		String sql = "select * from account_info where family_name like ? or last_name=? or family_name_kana=? or last_name_kana=? or mail=? or gender=? or authority=?";
 
 		try {
+			System.out.println(family_name);
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, family_name);
-			ps.setString(2, last_name);
-			ps.setString(3, family_name_kana);
-			ps.setString(4, last_name_kana);
-			ps.setString(5, mail);
-			ps.setString(6, gender);
-			ps.setString(7, authority);
+			ps.setString(1, "%" + family_name + "%");
+//			ps.setString(2, last_name);
+//			ps.setString(3, family_name_kana);
+//			ps.setString(4, last_name_kana);
+//			ps.setString(5, mail);
+//			ps.setString(6, gender);
+//			ps.setString(7, authority);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()) {
