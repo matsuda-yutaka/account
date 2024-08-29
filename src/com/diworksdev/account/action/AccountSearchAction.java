@@ -20,7 +20,6 @@ public class AccountSearchAction extends ActionSupport implements SessionAware{
 	private String authority;
 	private List<AccountListDTO> accountListDTOList = new ArrayList<AccountListDTO>();
 	private Map<String, Object> session;
-//	private String errorMessage;
 
 	public String execute() {
 
@@ -38,7 +37,6 @@ public class AccountSearchAction extends ActionSupport implements SessionAware{
 			result = SUCCESS;
 
 		} else {
-//			setErrorMessage("検索条件に一致するアカウントは存在しません。");
 			result = ERROR;
 		}
 
@@ -111,12 +109,4 @@ public class AccountSearchAction extends ActionSupport implements SessionAware{
 
 		this.session = session;
 	}
-
-//	public String getErrorMessage() {
-//		return errorMessage;
-//	}
-//
-//	public void setErrorMessage(String errorMessage) {
-//		this.errorMessage = errorMessage;
-//	}
 }

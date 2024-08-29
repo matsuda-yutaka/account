@@ -122,54 +122,81 @@
         		<h3>アカウント一覧画面</h3>
 				<table class="searchtable">
 					<tbody>
-						<tr class="maintr">
-							<th class="searchth">名前（性）</th>
-							<th class="searchth">
-								<input type="text" name="family_name" value="" style="width:250px;" />
-							</th>
-							<th class="searchth">名前（名）</th>
-							<th class="searchth">
-								<input type="text" name="last_name" value="" style="width:250px;" />
-							</th>
-						</tr>
-						<tr class="maintr">
-							<th class="searchth">カナ（性）</th>
-							<th class="searchth">
-								<input type="text" name="family_name_kana" value="" style="width:250px;" />
-							</th>
-							<th class="searchth">カナ（名）</th>
-							<th class="searchth">
-								<input type="text" name="last_name_kana" value="" style="width:250px;" />
-							</th>
-						</tr>
-						<tr class="maintr">
-							<th class="searchth">メールアドレス</th>
-							<th class="searchth">
-								<input type="text" name="mail" value="" style="width:250px;" />
-							</th>
-							<th class="searchth">性別</th>
-							<th class="searchth">
-								<input type="radio" name="gender" value=0 checked/>
-								<label for="男">男</label>
-								<input type="radio" name="gender" value=1 />
-								<label for="女">女</label>
-							</th>
-						</tr>
-						<tr class="maintr">
-							<th class="searchth">アカウント権限</th>
-							<th class="searchth">
-								<select name="authority" style="width:100px;">
-								    <option value=0>一般</option>
-								    <option value=1>管理者</option>
-								</select>
-							</th>
-							<th class="searchth" colspan="2">
-								<s:form action = "UpdateAction" method="get">
-									<input type="hidden" name="id" value="<s:property value="id"/>"/>
+						<s:form action = "AccountSearchAction">
+							<tr class="maintr">
+								<th class="searchth">名前（性）</th>
+								<th class="searchth">
+									<input type="text" name="family_name" value="<s:property value="family_name" escape="false" />" style="width:250px;" />
+								</th>
+								<th class="searchth">名前（名）</th>
+								<th class="searchth">
+									<input type="text" name="last_name" value="<s:property value="last_name" escape="false" />" style="width:250px;" />
+								</th>
+							</tr>
+							<tr class="maintr">
+								<th class="searchth">カナ（性）</th>
+								<th class="searchth">
+									<input type="text" name="family_name_kana" value="<s:property value="family_name_kana" escape="false" />" style="width:250px;" />
+								</th>
+								<th class="searchth">カナ（名）</th>
+								<th class="searchth">
+									<input type="text" name="last_name_kana" value="<s:property value="last_name_kana" escape="false" />" style="width:250px;" />
+								</th>
+							</tr>
+							<tr class="maintr">
+								<th class="searchth">メールアドレス</th>
+								<th class="searchth">
+									<input type="text" name="mail" value="<s:property value="mail" escape="false" />" style="width:250px;" />
+								</th>
+								<th class="searchth">性別</th>
+								<th class="searchth">
+									<script>
+										const gender = {
+										    0: "男",
+										    1: "女",
+										};
+										const chesked = <s:property value="gender" escape="false" />;
+										for (const prop in gender) {
+											if (chesked == prop) {
+												// 選択されている
+												document.write('<input type="radio" name="gender" value="'+prop+'" checked />'+gender[prop]);
+											} else {
+												// 選択されていない
+												document.write('<input type="radio" name="gender" value="'+prop+'" />'+gender[prop]);
+											}
+										}
+									</script>
+								</th>
+							</tr>
+							<tr class="maintr">
+								<th class="searchth">アカウント権限</th>
+								<th class="searchth">
+									<select name="authority">
+										<script>
+											const auths = {
+											    0: "一般",
+											    1: "管理者",
+											};
+											const selected = <s:property value="authority" escape="false" />;
+											for (const prop in auths) {
+												if (selected == prop) {
+													// 選択されている
+													document.write('<option value="'+prop+'" selected>'+auths[prop]+'</option>');
+												} else {
+													// 選択されていない
+													document.write('<option value="'+prop+'">'+auths[prop]+'</option>');
+												}
+											    //console.log(prop);
+											    //console.log(auths[prop]);
+											}
+										</script>
+									</select>
+								</th>
+								<th class="searchth" colspan="2">
 									<s:submit value="検索" class="button"/>
-								</s:form>
-							</th>
-						</tr>
+								</th>
+							</tr>
+						</s:form>
 					</tbody>
 				</table>
 				<table class="maintable">

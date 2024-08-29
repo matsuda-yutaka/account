@@ -190,8 +190,8 @@
 							<td>
 								<script>
 										const gender = {
-										    0: "男性",
-										    1: "女性",
+										    0: "男",
+										    1: "女",
 										};
 										const chesked = <s:property value="gender" escape="false" />;
 										for (const prop in gender) {
