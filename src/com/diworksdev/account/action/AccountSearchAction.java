@@ -27,9 +27,8 @@ public class AccountSearchAction extends ActionSupport implements SessionAware{
 
 		AccountListDAO dao=new AccountListDAO();
 
-		accountListDTOList = dao.select(family_name, last_name, family_name_kana, last_name_kana, mail, gender, authority);
-
-		System.out.println(this.family_name);
+		accountListDTOList = dao.select(family_name);
+//		accountListDTOList = dao.select(family_name, last_name, family_name_kana, last_name_kana, mail, gender, authority);
 
 		if(accountListDTOList.size() > 0){
 
