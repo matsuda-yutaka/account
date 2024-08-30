@@ -154,6 +154,7 @@
 										const gender = {
 										    0: "男",
 										    1: "女",
+										    2: "未選択",
 										};
 										const chesked = <s:property value="gender" escape="false" />;
 										for (const prop in gender) {
@@ -174,7 +175,8 @@
 									<select name="authority">
 										<script>
 											const auths = {
-											    0: "一般",
+												2: "未選択",
+												0: "一般",
 											    1: "管理者",
 											};
 											const selected = <s:property value="authority" escape="false" />;
