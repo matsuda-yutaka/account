@@ -22,7 +22,6 @@ public class AccountListDAO {
 
 	List<AccountListDTO> accountListDTOList = new ArrayList<AccountListDTO>();
 
-//	public List<AccountListDTO> select(String family_name) {
 	public List<AccountListDTO> select(String family_name, String last_name, String family_name_kana, String last_name_kana, String mail, String gender, String authority) {
 
 		DBConnector db = new DBConnector();
@@ -209,70 +208,12 @@ public class AccountListDAO {
 			} catch (SQLException e) {
 					e.printStackTrace();
 			}
-		// genderだけあったら
-		} else if (family_name.equals("") && last_name.equals("") && family_name_kana.equals("") && last_name_kana.equals("") && mail.equals("") && authority.equals("2")) {
-			String sql7 = "select * from account_info where gender = ?";
+		// family_nameとlast_nameだけあったら
+		} else if (family_name_kana.equals("") && last_name_kana.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql7 = "select * from account_info where family_name like ? and last_name like ?";
 
 			try {
 				PreparedStatement ps = con.prepareStatement(sql7);
-				ps.setString(1, gender);
-				ResultSet rs = ps.executeQuery();
-
-				while(rs.next()) {
-					AccountListDTO dto=new AccountListDTO();
-					dto.setId(rs.getString("id"));
-					dto.setFamily_name(rs.getString("family_name"));
-					dto.setLast_name(rs.getString("last_name"));
-					dto.setFamily_name_kana(rs.getString("family_name_kana"));
-					dto.setLast_name_kana(rs.getString("last_name_kana"));
-					dto.setMail(rs.getString("mail"));
-					dto.setGender(rs.getString("gender"));
-					dto.setAuthority(rs.getString("authority"));
-					dto.setDelete_flag(rs.getString("delete_flag"));
-					dto.setRegistered_time(rs.getString("registered_time"));
-					dto.setUpdate_time(rs.getString("update_time"));
-
-					accountListDTOList.add(dto);
-				}
-
-			} catch (SQLException e) {
-					e.printStackTrace();
-			}
-		// authorityだけあったら
-		} else if (family_name.equals("") && last_name.equals("") && family_name_kana.equals("") && last_name_kana.equals("") && mail.equals("") && gender.equals("2")) {
-			String sql8 = "select * from account_info where authority = ?";
-
-			try {
-				PreparedStatement ps = con.prepareStatement(sql8);
-				ps.setString(1, authority);
-				ResultSet rs = ps.executeQuery();
-
-				while(rs.next()) {
-					AccountListDTO dto=new AccountListDTO();
-					dto.setId(rs.getString("id"));
-					dto.setFamily_name(rs.getString("family_name"));
-					dto.setLast_name(rs.getString("last_name"));
-					dto.setFamily_name_kana(rs.getString("family_name_kana"));
-					dto.setLast_name_kana(rs.getString("last_name_kana"));
-					dto.setMail(rs.getString("mail"));
-					dto.setGender(rs.getString("gender"));
-					dto.setAuthority(rs.getString("authority"));
-					dto.setDelete_flag(rs.getString("delete_flag"));
-					dto.setRegistered_time(rs.getString("registered_time"));
-					dto.setUpdate_time(rs.getString("update_time"));
-
-					accountListDTOList.add(dto);
-				}
-
-			} catch (SQLException e) {
-					e.printStackTrace();
-			}
-		// family_nameとlast_nameだけあったら
-		} else if (family_name_kana.equals("") && last_name_kana.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
-			String sql9 = "select * from account_info where family_name like ? and last_name like ?";
-
-			try {
-				PreparedStatement ps = con.prepareStatement(sql9);
 				ps.setString(1, "%" + family_name + "%");
 				ps.setString(2, "%" + last_name + "%");
 				ResultSet rs = ps.executeQuery();
@@ -299,10 +240,10 @@ public class AccountListDAO {
 			}
 		// family_nameとfamily_name_kanaだけあったら
 		} else if (last_name.equals("") && last_name_kana.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
-			String sql10 = "select * from account_info where family_name like ? and family_name_kana like ?";
+			String sql8 = "select * from account_info where family_name like ? and family_name_kana like ?";
 
 			try {
-				PreparedStatement ps = con.prepareStatement(sql10);
+				PreparedStatement ps = con.prepareStatement(sql8);
 				ps.setString(1, "%" + family_name + "%");
 				ps.setString(2, "%" + family_name_kana + "%");
 				ResultSet rs = ps.executeQuery();
@@ -329,10 +270,10 @@ public class AccountListDAO {
 			}
 		// family_nameとlast_name_kanaだけあったら
 		} else if (last_name.equals("") && family_name_kana.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
-			String sql11 = "select * from account_info where family_name like ? and last_name_kana like ?";
+			String sql9 = "select * from account_info where family_name like ? and last_name_kana like ?";
 
 			try {
-				PreparedStatement ps = con.prepareStatement(sql11);
+				PreparedStatement ps = con.prepareStatement(sql9);
 				ps.setString(1, "%" + family_name + "%");
 				ps.setString(2, "%" + last_name_kana + "%");
 				ResultSet rs = ps.executeQuery();
@@ -359,10 +300,10 @@ public class AccountListDAO {
 			}
 		// family_nameとmailだけあったら
 		} else if (last_name.equals("") && family_name_kana.equals("") && last_name_kana.equals("") && gender.equals("2") && authority.equals("2")) {
-			String sql13 = "select * from account_info where family_name like ? and mail like ?";
+			String sql10 = "select * from account_info where family_name like ? and mail like ?";
 
 			try {
-				PreparedStatement ps = con.prepareStatement(sql13);
+				PreparedStatement ps = con.prepareStatement(sql10);
 				ps.setString(1, "%" + family_name + "%");
 				ps.setString(2, "%" + mail + "%");
 				ResultSet rs = ps.executeQuery();
@@ -387,14 +328,14 @@ public class AccountListDAO {
 			} catch (SQLException e) {
 					e.printStackTrace();
 			}
-		// family_nameとgenderだけあったら
-		} else if (last_name.equals("") && family_name_kana.equals("") && last_name_kana.equals("") && mail.equals("") && authority.equals("2")) {
-			String sql14 = "select * from account_info where family_name like ? and gender = ?";
+		// last_nameとfamily_name_kanaだけあったら
+		} else if (family_name.equals("") && last_name_kana.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql11 = "select * from account_info where last_name like ? and family_name_kana like ?";
 
 			try {
-				PreparedStatement ps = con.prepareStatement(sql14);
-				ps.setString(1, "%" + family_name + "%");
-				ps.setString(2, gender);
+				PreparedStatement ps = con.prepareStatement(sql11);
+				ps.setString(1, "%" + last_name + "%");
+				ps.setString(2, "%" + family_name_kana + "%");
 				ResultSet rs = ps.executeQuery();
 
 				while(rs.next()) {
@@ -417,14 +358,447 @@ public class AccountListDAO {
 			} catch (SQLException e) {
 					e.printStackTrace();
 			}
-		// family_nameとauthorityだけあったら
-		} else if (last_name.equals("") && family_name_kana.equals("") && last_name_kana.equals("") && mail.equals("") && gender.equals("2")) {
-			String sql15 = "select * from account_info where family_name like ? and authority = ?";
+		// last_nameとlast_name_kanaだけあったら
+		} else if (family_name.equals("") && family_name_kana.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql12 = "select * from account_info where last_name like ? and last_name_kana like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql12);
+				ps.setString(1, "%" + last_name + "%");
+				ps.setString(2, "%" + last_name_kana + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// last_nameとlast_name_kanaだけあったら
+		} else if (family_name.equals("") && family_name_kana.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql13 = "select * from account_info where last_name like ? and last_name_kana like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql13);
+				ps.setString(1, "%" + last_name + "%");
+				ps.setString(2, "%" + last_name_kana + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// last_nameとmailだけあったら
+		} else if (family_name.equals("") && family_name_kana.equals("") && last_name_kana.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql14 = "select * from account_info where last_name like ? and mail like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql14);
+				ps.setString(1, "%" + last_name + "%");
+				ps.setString(2, "%" + mail + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_name_kanaとlast_name_kanaだけあったら
+		} else if (family_name.equals("") && last_name.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql15 = "select * from account_info where family_name_kana like ? and last_name_kana like ?";
 
 			try {
 				PreparedStatement ps = con.prepareStatement(sql15);
+				ps.setString(1, "%" + family_name_kana + "%");
+				ps.setString(2, "%" + last_name_kana + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_name_kanaとmailだけあったら
+		} else if (family_name.equals("") && last_name.equals("") && last_name_kana.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql16 = "select * from account_info where family_name_kana like ? and mail like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql16);
+				ps.setString(1, "%" + family_name_kana + "%");
+				ps.setString(2, "%" + mail + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// last_name_kanaとmailだけあったら
+		} else if (family_name.equals("") && last_name.equals("") && family_name_kana.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql17 = "select * from account_info where last_name_kana like ? and mail like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql17);
+				ps.setString(1, "%" + last_name_kana + "%");
+				ps.setString(2, "%" + mail + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_nameとlast_nameとfamily_name_kanaだけあったら
+		} else if (last_name_kana.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql18 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql18);
 				ps.setString(1, "%" + family_name + "%");
-				ps.setString(2, authority);
+				ps.setString(2, "%" + last_name + "%");
+				ps.setString(3, "%" + family_name_kana + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_nameとlast_nameとlast_name_kanaだけあったら
+		} else if (family_name_kana.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql19 = "select * from account_info where family_name like ? and last_name like ? and last_name_kana like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql19);
+				ps.setString(1, "%" + family_name + "%");
+				ps.setString(2, "%" + last_name + "%");
+				ps.setString(3, "%" + last_name_kana + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_nameとlast_nameとmailだけあったら
+		} else if (family_name_kana.equals("") && last_name_kana.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql20 = "select * from account_info where family_name like ? and last_name like ? and mail like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql20);
+				ps.setString(1, "%" + family_name + "%");
+				ps.setString(2, "%" + last_name + "%");
+				ps.setString(3, "%" + mail + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_nameとfamily_name_kanaとlast_name_kanaだけあったら
+		} else if (last_name.equals("") && mail.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql21 = "select * from account_info where family_name like ? and family_name_kana like ? and last_name_kana like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql21);
+				ps.setString(1, "%" + family_name + "%");
+				ps.setString(2, "%" + family_name_kana + "%");
+				ps.setString(3, "%" + last_name_kana + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_nameとfamily_name_kanaとmailだけあったら
+		} else if (last_name.equals("") && last_name_kana.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql22 = "select * from account_info where family_name like ? and family_name_kana like ? and mail like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql22);
+				ps.setString(1, "%" + family_name + "%");
+				ps.setString(2, "%" + family_name_kana + "%");
+				ps.setString(3, "%" + mail + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_nameとlast_name_kanaとmailだけあったら
+		} else if (last_name.equals("") && family_name_kana.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql23 = "select * from account_info where family_name like ? and last_name_kana like ? and mail like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql23);
+				ps.setString(1, "%" + family_name + "%");
+				ps.setString(2, "%" + last_name_kana + "%");
+				ps.setString(3, "%" + mail + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_nameとlast_nameとfamily_name_kanaとlast_name_kanaだけあったら
+		} else if (mail.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql24 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and ? last_name_kana like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql24);
+				ps.setString(1, "%" + family_name + "%");
+				ps.setString(2, "%" + last_name + "%");
+				ps.setString(3, "%" + family_name_kana + "%");
+				ps.setString(4, "%" + last_name_kana + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// family_nameとlast_nameとfamily_name_kanaとmailだけあったら
+		} else if (last_name_kana.equals("") && gender.equals("2") && authority.equals("2")) {
+			String sql25 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and ? mail like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql25);
+				ps.setString(1, "%" + family_name + "%");
+				ps.setString(2, "%" + last_name + "%");
+				ps.setString(3, "%" + family_name_kana + "%");
+				ps.setString(4, "%" + mail + "%");
+				ResultSet rs = ps.executeQuery();
+
+				while(rs.next()) {
+					AccountListDTO dto=new AccountListDTO();
+					dto.setId(rs.getString("id"));
+					dto.setFamily_name(rs.getString("family_name"));
+					dto.setLast_name(rs.getString("last_name"));
+					dto.setFamily_name_kana(rs.getString("family_name_kana"));
+					dto.setLast_name_kana(rs.getString("last_name_kana"));
+					dto.setMail(rs.getString("mail"));
+					dto.setGender(rs.getString("gender"));
+					dto.setAuthority(rs.getString("authority"));
+					dto.setDelete_flag(rs.getString("delete_flag"));
+					dto.setRegistered_time(rs.getString("registered_time"));
+					dto.setUpdate_time(rs.getString("update_time"));
+
+					accountListDTOList.add(dto);
+				}
+
+			} catch (SQLException e) {
+					e.printStackTrace();
+			}
+		// genderとauthority以外あったら
+		} else if (gender.equals("2") && authority.equals("2")) {
+			String sql26 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and last_name_kana like ? and mail like ?";
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql26);
+				ps.setString(1, "%" + family_name + "%");
+				ps.setString(2, "%" + last_name + "%");
+				ps.setString(3, "%" + family_name_kana + "%");
+				ps.setString(4, "%" + last_name_kana + "%");
+				ps.setString(5, "%" + mail + "%");
 				ResultSet rs = ps.executeQuery();
 
 				while(rs.next()) {
@@ -449,10 +823,10 @@ public class AccountListDAO {
 			}
 		// genderがなかったら
 		} else if (gender.equals("2")) {
-			String sql16 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and last_name_kana like ? and mail like ? and authority = ?";
+			String sql27 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and last_name_kana like ? and mail like ? and authority = ?";
 
 			try {
-				PreparedStatement ps = con.prepareStatement(sql16);
+				PreparedStatement ps = con.prepareStatement(sql27);
 				ps.setString(1, "%" + family_name + "%");
 				ps.setString(2, "%" + last_name + "%");
 				ps.setString(3, "%" + family_name_kana + "%");
@@ -483,10 +857,10 @@ public class AccountListDAO {
 			}
 		// authorityがなかったら
 		} else if (authority.equals("2")) {
-			String sql3 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and last_name_kana like ? and mail like ? and gender = ?";
+			String sql28 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and last_name_kana like ? and mail like ? and gender = ?";
 
 			try {
-				PreparedStatement ps = con.prepareStatement(sql3);
+				PreparedStatement ps = con.prepareStatement(sql28);
 				ps.setString(1, "%" + family_name + "%");
 				ps.setString(2, "%" + last_name + "%");
 				ps.setString(3, "%" + family_name_kana + "%");
@@ -518,10 +892,10 @@ public class AccountListDAO {
 
 		// どっちもあったら
 		} else {
-			String sql4 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and last_name_kana like ? and mail like ? and gender = ? and authority = ?";
+			String sql29 = "select * from account_info where family_name like ? and last_name like ? and family_name_kana like ? and last_name_kana like ? and mail like ? and gender = ? and authority = ?";
 
 			try {
-				PreparedStatement ps = con.prepareStatement(sql4);
+				PreparedStatement ps = con.prepareStatement(sql29);
 				ps.setString(1, "%" + family_name + "%");
 				ps.setString(2, "%" + last_name + "%");
 				ps.setString(3, "%" + family_name_kana + "%");
